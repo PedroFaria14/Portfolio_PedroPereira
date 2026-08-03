@@ -1,4 +1,4 @@
-# Portfólio — Pedro Pereira
+# Portfólio — Pedro Pereira - https://portfolio-pedro-pereira.vercel.app/
 
 Portfólio one-page em React + Vite + Tailwind CSS v4 + Framer Motion, com direção visual **Premium Elegante** (dark), foco em **Sistemas Escaláveis & Web3** e suporte completo a **PT/EN**.
 
