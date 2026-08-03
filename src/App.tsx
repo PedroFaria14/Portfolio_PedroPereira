@@ -9,8 +9,10 @@ import { Experience } from './components/Experience'
 import { Hero } from './components/Hero'
 import { Navbar } from './components/Navbar'
 import { Projects } from './components/Projects'
+import { ActiveSectionIndicator } from './components/SectionActiveIndicator'
 import { Stack } from './components/Stack'
 import { profile } from './data/portfolio'
+import { LanguageProvider } from './i18n/LanguageProvider'
 
 function ScrollProgress() {
   const { scrollYProgress } = useScroll()
@@ -24,7 +26,7 @@ function ScrollProgress() {
   )
 }
 
-function App() {
+function Site() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -37,6 +39,7 @@ function App() {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-base text-ink">
       <BackgroundCanvas />
+      <ActiveSectionIndicator />
       <ScrollProgress />
       <Navbar scrolled={scrolled} />
       <main className="relative z-10">
@@ -51,13 +54,23 @@ function App() {
       </main>
       <footer className="relative z-10 border-t border-border px-6 py-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 text-sm text-subtle sm:flex-row sm:px-10 lg:px-16">
-          <p>© {new Date().getFullYear()} {profile.name}</p>
+          <p>
+            © {new Date().getFullYear()} {profile.name}
+          </p>
           <p className="font-mono text-xs">
             Full Stack <span className="text-accent">&</span> Blockchain
           </p>
         </div>
       </footer>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <LanguageProvider>
+      <Site />
+    </LanguageProvider>
   )
 }
 
