@@ -24,14 +24,14 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-20 border-b transition-colors duration-200 backdrop-blur-md ${
-        scrolled ? 'border-border bg-base/70' : 'border-transparent bg-base/40'
+      className={`fixed inset-x-0 top-0 z-20 border-b backdrop-blur-md transition-colors duration-200 ${
+        scrolled ? 'border-border bg-base/85' : 'border-transparent bg-base/40'
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-10 lg:px-16">
         <a
           href="#inicio"
-          className="font-display text-lg font-semibold text-ink"
+          className="font-display text-lg font-semibold text-ink transition-[text-shadow] duration-300 hover:[text-shadow:0_0_18px_rgba(201,164,74,0.5)]"
           onClick={() => setOpen(false)}
         >
           {profile.name.split(' ')[0]}
@@ -44,7 +44,7 @@ export function Navbar({ scrolled }: { scrolled: boolean }) {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm text-muted transition-colors duration-150 hover:text-accent focus-visible:outline-2 focus-visible:outline-accent"
+                  className="relative text-sm text-muted transition-colors duration-150 hover:text-accent focus-visible:outline-2 focus-visible:outline-accent after:absolute after:bottom-[-4px] after:left-1/2 after:h-px after:w-0 after:-translate-x-1/2 after:bg-accent after:transition-all after:duration-300 after:content-[''] hover:after:w-full"
                 >
                   {t(`nav.${link.key}`)}
                 </a>
