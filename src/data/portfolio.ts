@@ -160,18 +160,18 @@ export const featuredProjects: Project[] = [
     featured: true,
   },
   {
-    title: { pt: 'ecommerce-golang', en: 'ecommerce-golang' },
+    title: { pt: 'Jogo-survive-the-destruction', en: 'Jogo-survive-the-destruction' },
     description: {
-      pt: 'Loja virtual em Go com PostgreSQL, incluindo cadastro de produtos e e-commerce básico.',
-      en: 'Online store in Go with PostgreSQL, including product registration and basic e-commerce.',
+      pt: 'Jogo multiplayer em tempo real via WebSocket onde a arena de ilhas flutuantes é destruída aos poucos. Sobreviva pulando entre as ilhas, use power-ups e empurre os oponentes enquanto o chão desaparece.',
+      en: 'Real-time multiplayer WebSocket game where the floating islands arena is gradually destroyed. Survive by jumping between islands, using power-ups, and pushing opponents while the ground disappears.',
     },
-    stack: ['Go', 'PostgreSQL', 'HTML'],
-    category: 'backend',
+    stack: ['React', 'Vite', 'MUI', 'Go', 'PostgreSQL', 'WebSocket'],
+    category: 'frontend',
     impact: {
-      pt: 'Foco em performance de backend e persistência segura para transações de e-commerce.',
-      en: 'Focus on backend performance and secure persistence for e-commerce transactions.',
+      pt: 'Jogo multiplayer com física no servidor (tick 60 FPS), arena procedural, power-ups e leaderboard em PostgreSQL.',
+      en: 'Multiplayer game with server-side physics (60 FPS tick), procedural arena, power-ups, and PostgreSQL leaderboard.',
     },
-    link: 'https://github.com/PedroFaria14/ecommerce-golang',
+    link: 'https://jogo-survive-the-destruction.vercel.app/',
     featured: true,
   },
   {
