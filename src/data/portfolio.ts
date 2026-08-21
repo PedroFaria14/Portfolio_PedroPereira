@@ -1,4 +1,4 @@
-import type { BiString } from '../i18n/i18n'
+import type { BiString } from '../i18n/i18n';
 
 export interface Project {
   title: BiString;
@@ -78,7 +78,14 @@ export const skills = {
   ],
   frameworks: ['React', 'Express', 'FastAPI', 'Flutter', 'Gin'],
   web3: ['Smart Contracts', 'MetaMask', 'Hardhat', 'Solana', 'Anchor'],
-  infra: ['Git/GitHub', 'Docker', 'Firebase', 'MongoDB', 'APIs REST', 'Power BI'],
+  infra: [
+    'Git/GitHub',
+    'Docker',
+    'Firebase',
+    'MongoDB',
+    'APIs REST',
+    'Power BI',
+  ],
   foundations: [
     { pt: 'Análise de Sistemas', en: 'Systems Analysis' },
     { pt: 'Engenharia de Requisitos', en: 'Requirements Engineering' },
@@ -91,7 +98,10 @@ export const softSkills: BiString[] = [
   { pt: 'Inglês Técnico', en: 'Technical English' },
   { pt: 'Desenvolvimento colaborativo', en: 'Collaborative development' },
   { pt: 'Resolução de Problemas', en: 'Problem Solving' },
-  { pt: 'Aprendizado Contínuo & Adaptabilidade', en: 'Continuous Learning & Adaptability' },
+  {
+    pt: 'Aprendizado Contínuo & Adaptabilidade',
+    en: 'Continuous Learning & Adaptability',
+  },
   { pt: 'Comunicação eficaz', en: 'Effective communication' },
   { pt: 'Trabalho em equipe', en: 'Teamwork' },
   { pt: 'Gestão de tempo', en: 'Time management' },
@@ -100,7 +110,10 @@ export const softSkills: BiString[] = [
 
 export const featuredProjects: Project[] = [
   {
-    title: { pt: 'CodePath (App Educacional)', en: 'CodePath (Educational App)' },
+    title: {
+      pt: 'CodePath (App Educacional)',
+      en: 'CodePath (Educational App)',
+    },
     description: {
       pt: 'Aplicativo gamificado para o ensino de lógica de programação. Arquitetura full-stack com Flutter, backend em Python/FastAPI e integração via Firebase.',
       en: 'Gamified app for teaching programming logic. Full-stack architecture with Flutter, Python/FastAPI backend and Firebase integration.',
@@ -160,7 +173,10 @@ export const featuredProjects: Project[] = [
     featured: true,
   },
   {
-    title: { pt: 'Jogo-survive-the-destruction', en: 'Jogo-survive-the-destruction' },
+    title: {
+      pt: 'Jogo-survive-the-destruction',
+      en: 'Jogo-survive-the-destruction',
+    },
     description: {
       pt: 'Jogo multiplayer em tempo real via WebSocket onde a arena de ilhas flutuantes é destruída aos poucos. Sobreviva pulando entre as ilhas, use power-ups e empurre os oponentes enquanto o chão desaparece.',
       en: 'Real-time multiplayer WebSocket game where the floating islands arena is gradually destroyed. Survive by jumping between islands, using power-ups, and pushing opponents while the ground disappears.',
@@ -171,7 +187,7 @@ export const featuredProjects: Project[] = [
       pt: 'Jogo multiplayer com física no servidor (tick 60 FPS), arena procedural, power-ups e leaderboard em PostgreSQL.',
       en: 'Multiplayer game with server-side physics (60 FPS tick), procedural arena, power-ups, and PostgreSQL leaderboard.',
     },
-    link: 'https://jogo-survive-the-destruction.vercel.app/',
+    link: 'https://survive.phfaria.com/',
     featured: true,
   },
   {
@@ -195,7 +211,10 @@ export const allProjects: Project[] = [
   // Web3
   {
     title: { pt: 'zero-custody-solana-agent', en: 'zero-custody-solana-agent' },
-    description: { pt: 'Agente Solana com custódia zero.', en: 'Solana agent with zero custody.' },
+    description: {
+      pt: 'Agente Solana com custódia zero.',
+      en: 'Solana agent with zero custody.',
+    },
     stack: ['JavaScript', 'Solana'],
     category: 'web3',
     link: 'https://github.com/PedroFaria14/zero-custody-solana-agent',
@@ -223,7 +242,10 @@ export const allProjects: Project[] = [
   },
   {
     title: { pt: 'Secret-Word', en: 'Secret-Word' },
-    description: { pt: 'Jogo de adivinhar palavras.', en: 'Word guessing game.' },
+    description: {
+      pt: 'Jogo de adivinhar palavras.',
+      en: 'Word guessing game.',
+    },
     stack: ['React', 'JavaScript'],
     category: 'frontend',
     link: 'https://github.com/PedroFaria14/Secret-Word',
@@ -271,10 +293,13 @@ export const allProjects: Project[] = [
     description: { pt: 'Projeto autoral.', en: 'Personal project.' },
     stack: ['Python'],
     category: 'other',
-    link: 'https://github.com/PedroFaria14/-AtaFlow',
+    link: 'https://ata-flow.phfaria.com/',
   },
   {
-    title: { pt: 'Jogo-survive-the-destruction', en: 'Jogo-survive-the-destruction' },
+    title: {
+      pt: 'Jogo-survive-the-destruction',
+      en: 'Jogo-survive-the-destruction',
+    },
     description: { pt: 'Jogo autoral.', en: 'Personal game.' },
     stack: ['Go'],
     category: 'other',
@@ -282,14 +307,20 @@ export const allProjects: Project[] = [
   },
   {
     title: { pt: 'Projeto-Agenda', en: 'Projeto-Agenda' },
-    description: { pt: 'Agenda de compromissos.', en: 'Appointment scheduler.' },
+    description: {
+      pt: 'Agenda de compromissos.',
+      en: 'Appointment scheduler.',
+    },
     stack: ['Python'],
     category: 'other',
     link: 'https://github.com/PedroFaria14/Projeto-Agenda',
   },
   {
     title: { pt: 'Calculadora-Python', en: 'Calculadora-Python' },
-    description: { pt: 'Calculadora com PySide6.', en: 'Calculator with PySide6.' },
+    description: {
+      pt: 'Calculadora com PySide6.',
+      en: 'Calculator with PySide6.',
+    },
     stack: ['Python'],
     category: 'other',
     link: 'https://github.com/PedroFaria14/Calculadora-Python',
@@ -326,7 +357,10 @@ export const experience = [
       en: 'Working in R&D, contributing to the development of blockchain-based solutions.',
     },
     responsibilities: [
-      { pt: 'Tarefas de front-end e back-end', en: 'Front-end and back-end tasks' },
+      {
+        pt: 'Tarefas de front-end e back-end',
+        en: 'Front-end and back-end tasks',
+      },
       {
         pt: 'Participação no ciclo completo de desenvolvimento',
         en: 'Participation in the full development cycle',
@@ -334,7 +368,10 @@ export const experience = [
     ],
   },
   {
-    role: { pt: 'Estagiário de TI — Infraestrutura', en: 'IT Intern — Infrastructure' },
+    role: {
+      pt: 'Estagiário de TI — Infraestrutura',
+      en: 'IT Intern — Infrastructure',
+    },
     org: { pt: 'Suporte Técnico', en: 'Technical Support' },
     period: '06/2024 — 02/2025',
     description: {
@@ -342,7 +379,10 @@ export const experience = [
       en: 'Technical support and infrastructure maintenance to ensure availability of work tools.',
     },
     responsibilities: [
-      { pt: 'Suporte nível 1 e 2 aos usuários', en: 'Level 1 and 2 user support' },
+      {
+        pt: 'Suporte nível 1 e 2 aos usuários',
+        en: 'Level 1 and 2 user support',
+      },
       {
         pt: 'Manutenção e configuração de hardwares e sistemas operacionais',
         en: 'Hardware and operating system maintenance and configuration',
@@ -357,7 +397,10 @@ export const experience = [
 
 export const education = [
   {
-    degree: { pt: 'Análise e Desenvolvimento de Sistemas', en: 'Systems Analysis and Development' },
+    degree: {
+      pt: 'Análise e Desenvolvimento de Sistemas',
+      en: 'Systems Analysis and Development',
+    },
     school: 'Universidade Cruzeiro do Sul',
     period: { pt: 'Concluído em 07/2026', en: 'Completed 07/2026' },
   },
@@ -373,15 +416,22 @@ export const education = [
   },
 ];
 
-export type CourseCategoryKey = 'frontend' | 'backend' | 'web3' | 'infra' | 'foundations' | 'data';
+export type CourseCategoryKey =
+  'frontend' | 'backend' | 'web3' | 'infra' | 'foundations' | 'data';
 
 export const courseCategories: { key: CourseCategoryKey; label: BiString }[] = [
-  { key: 'frontend', label: { pt: 'Frontend & JavaScript', en: 'Frontend & JavaScript' } },
+  {
+    key: 'frontend',
+    label: { pt: 'Frontend & JavaScript', en: 'Frontend & JavaScript' },
+  },
   { key: 'backend', label: { pt: 'Backend & Go', en: 'Backend & Go' } },
   { key: 'web3', label: { pt: 'Blockchain & Web3', en: 'Blockchain & Web3' } },
   { key: 'infra', label: { pt: 'Infra & DevOps', en: 'Infra & DevOps' } },
   { key: 'data', label: { pt: 'Dados & BI', en: 'Data & BI' } },
-  { key: 'foundations', label: { pt: 'Fundamentos & IA', en: 'Fundamentals & AI' } },
+  {
+    key: 'foundations',
+    label: { pt: 'Fundamentos & IA', en: 'Fundamentals & AI' },
+  },
 ];
 
 export type Course = {
@@ -405,7 +455,10 @@ export const courses: Course[] = [
     category: 'frontend',
   },
   {
-    name: { pt: 'React do Básico ao Avançado (Udemy)', en: 'React from Basic to Advanced (Udemy)' },
+    name: {
+      pt: 'React do Básico ao Avançado (Udemy)',
+      en: 'React from Basic to Advanced (Udemy)',
+    },
     category: 'frontend',
   },
   {
@@ -415,9 +468,15 @@ export const courses: Course[] = [
     },
     category: 'frontend',
   },
-  { name: { pt: 'Introdução a Vue', en: 'Introduction to Vue' }, category: 'frontend' },
   {
-    name: { pt: 'SOLID aplicado ao React (Alura)', en: 'SOLID applied to React (Alura)' },
+    name: { pt: 'Introdução a Vue', en: 'Introduction to Vue' },
+    category: 'frontend',
+  },
+  {
+    name: {
+      pt: 'SOLID aplicado ao React (Alura)',
+      en: 'SOLID applied to React (Alura)',
+    },
     category: 'frontend',
   },
   {
@@ -428,15 +487,24 @@ export const courses: Course[] = [
     category: 'backend',
   },
   {
-    name: { pt: 'Go: a linguagem do Google (Alura)', en: 'Go: the Google language (Alura)' },
+    name: {
+      pt: 'Go: a linguagem do Google (Alura)',
+      en: 'Go: the Google language (Alura)',
+    },
     category: 'backend',
   },
   {
-    name: { pt: 'Go: Orientação a Objetos (Alura)', en: 'Go: Object-Oriented Programming (Alura)' },
+    name: {
+      pt: 'Go: Orientação a Objetos (Alura)',
+      en: 'Go: Object-Oriented Programming (Alura)',
+    },
     category: 'backend',
   },
   {
-    name: { pt: 'Go: Boas práticas em projetos (Alura)', en: 'Go: Best practices in projects (Alura)' },
+    name: {
+      pt: 'Go: Boas práticas em projetos (Alura)',
+      en: 'Go: Best practices in projects (Alura)',
+    },
     category: 'backend',
   },
   {
@@ -457,9 +525,18 @@ export const courses: Course[] = [
     name: { pt: 'Java Web com JSP e MySQL', en: 'Java Web with JSP and MySQL' },
     category: 'backend',
   },
-  { name: { pt: 'REST API com Docker e AWS', en: 'REST API with Docker and AWS' }, category: 'backend' },
   {
-    name: { pt: 'Blockchain basics (Cyfrin Updraft)', en: 'Blockchain basics (Cyfrin Updraft)' },
+    name: {
+      pt: 'REST API com Docker e AWS',
+      en: 'REST API with Docker and AWS',
+    },
+    category: 'backend',
+  },
+  {
+    name: {
+      pt: 'Blockchain basics (Cyfrin Updraft)',
+      en: 'Blockchain basics (Cyfrin Updraft)',
+    },
     category: 'web3',
   },
   {
@@ -476,10 +553,16 @@ export const courses: Course[] = [
     },
     category: 'infra',
   },
-  { name: { pt: 'Endpoint Security', en: 'Endpoint Security' }, category: 'infra' },
+  {
+    name: { pt: 'Endpoint Security', en: 'Endpoint Security' },
+    category: 'infra',
+  },
   { name: { pt: '5G — Básico', en: '5G — Basic' }, category: 'infra' },
   {
-    name: { pt: 'MongoDB: Validando dados (Alura)', en: 'MongoDB: Validating data (Alura)' },
+    name: {
+      pt: 'MongoDB: Validando dados (Alura)',
+      en: 'MongoDB: Validating data (Alura)',
+    },
     category: 'infra',
   },
   {
@@ -497,15 +580,24 @@ export const courses: Course[] = [
     category: 'foundations',
   },
   {
-    name: { pt: 'Introdução a Machine Learning', en: 'Introduction to Machine Learning' },
+    name: {
+      pt: 'Introdução a Machine Learning',
+      en: 'Introduction to Machine Learning',
+    },
     category: 'foundations',
   },
   {
-    name: { pt: 'Introdução ao Desenvolvimento de Jogos', en: 'Introduction to Game Development' },
+    name: {
+      pt: 'Introdução ao Desenvolvimento de Jogos',
+      en: 'Introduction to Game Development',
+    },
     category: 'foundations',
   },
   {
-    name: { pt: 'Felicidade e Qualidade de Vida', en: 'Happiness and Quality of Life' },
+    name: {
+      pt: 'Felicidade e Qualidade de Vida',
+      en: 'Happiness and Quality of Life',
+    },
     category: 'foundations',
   },
   {
@@ -515,10 +607,28 @@ export const courses: Course[] = [
     },
     category: 'data',
   },
-  { name: { pt: 'Introdução ao PowerBI', en: 'Introduction to Power BI' }, category: 'data' },
-  { name: { pt: 'Power BI Completo', en: 'Power BI Complete' }, category: 'data' },
-  { name: { pt: 'Modelando Dados no Power BI', en: 'Modeling Data in Power BI' }, category: 'data' },
-  { name: { pt: 'Análise de Dados no Power BI', en: 'Data Analysis in Power BI' }, category: 'data' },
+  {
+    name: { pt: 'Introdução ao PowerBI', en: 'Introduction to Power BI' },
+    category: 'data',
+  },
+  {
+    name: { pt: 'Power BI Completo', en: 'Power BI Complete' },
+    category: 'data',
+  },
+  {
+    name: {
+      pt: 'Modelando Dados no Power BI',
+      en: 'Modeling Data in Power BI',
+    },
+    category: 'data',
+  },
+  {
+    name: {
+      pt: 'Análise de Dados no Power BI',
+      en: 'Data Analysis in Power BI',
+    },
+    category: 'data',
+  },
   {
     name: {
       pt: 'Preparando Dados para Análise (Microsoft Power BI)',
@@ -527,8 +637,14 @@ export const courses: Course[] = [
     category: 'data',
   },
   {
-    name: { pt: 'Coursera: Análise de Dados em R', en: 'Coursera: Data Analysis in R' },
+    name: {
+      pt: 'Coursera: Análise de Dados em R',
+      en: 'Coursera: Data Analysis in R',
+    },
     category: 'data',
   },
-  { name: { pt: 'Coursera: Análise de Dados', en: 'Coursera: Data Analysis' }, category: 'data' },
+  {
+    name: { pt: 'Coursera: Análise de Dados', en: 'Coursera: Data Analysis' },
+    category: 'data',
+  },
 ];
