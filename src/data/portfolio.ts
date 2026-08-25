@@ -171,7 +171,8 @@ export const featuredProjects: Project[] = [
       pt: 'Estrutura requisitos e modelagem de dados para otimizar processos de gestão comercial.',
       en: 'Structures requirements and data modeling to optimize commercial management processes.',
     },
-    github: 'https://github.com/PedroFaria14/Project-Clean-Pos-Engine-TechSnacks',
+    github:
+      'https://github.com/PedroFaria14/Project-Clean-Pos-Engine-TechSnacks',
     featured: true,
   },
   {
