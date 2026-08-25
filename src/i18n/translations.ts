@@ -61,7 +61,7 @@ export const translations = {
       label: 'contato',
       title: 'Vamos conversar?',
       description:
-        'Estou disponível para estágio e oportunidades de desenvolvimento. Me chama por qualquer um dos canais abaixo.',
+        'Estou disponível para oportunidades como Desenvolvedor Júnior e novos desafios. Me chama por qualquer um dos canais abaixo.',
     },
     footer: {
       rights: 'Todos os direitos reservados.',
@@ -129,7 +129,7 @@ export const translations = {
       label: 'contact',
       title: "Let's talk?",
       description:
-        "I'm available for internships and development opportunities. Reach out through any of the channels below.",
+        "I'm available for Junior Developer roles and new challenges. Reach out through any of the channels below.",
     },
     footer: {
       rights: 'All rights reserved.',

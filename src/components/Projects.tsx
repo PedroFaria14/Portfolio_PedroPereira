@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Globe, Video } from 'lucide-react'
 import { allProjects, featuredProjects, type Project } from '../data/portfolio'
 import { useLanguage } from '../i18n/language'
 import { pick } from '../i18n/i18n'
@@ -7,23 +7,47 @@ import { Reveal } from './Reveal'
 import { SectionHeader } from './SectionHeader'
 
 function ProjectCard({ project }: { project: Project }) {
-  const { title, description, stack, impact, link } = project
+  const { title, description, stack, impact, link, github, video } = project
   const { locale, t } = useLanguage()
   return (
     <div className="group flex h-full flex-col rounded-2xl border border-border bg-surface p-6 transition-colors duration-200 hover:border-accent">
       <div className="mb-3 flex items-start justify-between gap-3">
         <h3 className="font-display text-lg font-medium text-ink">{pick(locale, title)}</h3>
-        {link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${t('projects.open')} ${pick(locale, title)}`}
-            className="text-muted transition-colors hover:text-accent"
-          >
-            <GithubIcon className="h-5 w-5" />
-          </a>
-        )}
+        <div className="flex items-center gap-3">
+          {github && (
+            <a
+              href={github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${t('projects.open')} ${pick(locale, title)} no GitHub`}
+              className="text-muted transition-colors hover:text-accent"
+            >
+              <GithubIcon className="h-5 w-5" />
+            </a>
+          )}
+          {link && (
+            <a
+              href={link}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${t('projects.open')} ${pick(locale, title)}`}
+              className="text-muted transition-colors hover:text-accent"
+            >
+              <Globe className="h-5 w-5" />
+            </a>
+          )}
+          {video && (
+            <a
+              href={video}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Vídeo de ${pick(locale, title)}`}
+              className="text-muted transition-colors hover:text-accent"
+            >
+              <Video className="h-5 w-5" />
+            </a>
+          )}
+        </div>
       </div>
 
       <p className="flex-1 text-sm leading-relaxed text-muted">{pick(locale, description)}</p>

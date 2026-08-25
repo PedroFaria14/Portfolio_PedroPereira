@@ -6,6 +6,8 @@ export interface Project {
   stack: string[];
   impact?: BiString;
   link?: string;
+  github?: string;
+  video?: string;
   featured?: boolean;
   category: 'web3' | 'backend' | 'frontend' | 'other';
 }
@@ -124,7 +126,7 @@ export const featuredProjects: Project[] = [
       pt: 'Facilita o engajamento no aprendizado de lógica com arquitetura desacoplada e resposta em tempo real.',
       en: 'Boosts engagement in learning logic with a decoupled architecture and real-time responses.',
     },
-    link: 'https://github.com/PedroFaria14/Projeto_CodePath',
+    github: 'https://github.com/PedroFaria14/Projeto_CodePath',
     featured: true,
   },
   {
@@ -139,7 +141,7 @@ export const featuredProjects: Project[] = [
       pt: 'Garante privacidade e imutabilidade em votações e interações através de smart contracts.',
       en: 'Ensures privacy and immutability in voting and interactions through smart contracts.',
     },
-    link: 'https://github.com/PedroFaria14/web3-anon-dapp',
+    github: 'https://github.com/PedroFaria14/web3-anon-dapp',
     featured: true,
   },
   {
@@ -169,7 +171,7 @@ export const featuredProjects: Project[] = [
       pt: 'Estrutura requisitos e modelagem de dados para otimizar processos de gestão comercial.',
       en: 'Structures requirements and data modeling to optimize commercial management processes.',
     },
-    link: 'https://github.com/PedroFaria14/Project-Clean-Pos-Engine-TechSnacks',
+    github: 'https://github.com/PedroFaria14/Project-Clean-Pos-Engine-TechSnacks',
     featured: true,
   },
   {
@@ -188,6 +190,7 @@ export const featuredProjects: Project[] = [
       en: 'Multiplayer game with server-side physics (60 FPS tick), procedural arena, power-ups, and PostgreSQL leaderboard.',
     },
     link: 'https://survive.phfaria.com/',
+    github: 'https://github.com/PedroFaria14/Jogo-survive-the-destruction',
     featured: true,
   },
   {
@@ -202,7 +205,7 @@ export const featuredProjects: Project[] = [
       pt: 'Apoia a retenção e a jornada acadêmica de estudantes ingressantes na área de tecnologia.',
       en: 'Supports retention and the academic journey of students entering the tech field.',
     },
-    link: 'https://github.com/PedroFaria14/site_JornadaDev',
+    github: 'https://github.com/PedroFaria14/site_JornadaDev',
     featured: true,
   },
 ];
@@ -217,7 +220,7 @@ export const allProjects: Project[] = [
     },
     stack: ['JavaScript', 'Solana'],
     category: 'web3',
-    link: 'https://github.com/PedroFaria14/zero-custody-solana-agent',
+    github: 'https://github.com/PedroFaria14/zero-custody-solana-agent',
   },
   // Frontend
   {
@@ -228,7 +231,7 @@ export const allProjects: Project[] = [
     },
     stack: ['React', 'JavaScript', 'Express'],
     category: 'frontend',
-    link: 'https://github.com/PedroFaria14/ReactGram',
+    github: 'https://github.com/PedroFaria14/ReactGram',
   },
   {
     title: { pt: 'Lista_de_Tarefas', en: 'Lista_de_Tarefas' },
@@ -238,7 +241,7 @@ export const allProjects: Project[] = [
     },
     stack: ['React', 'TypeScript'],
     category: 'frontend',
-    link: 'https://github.com/PedroFaria14/Lista_de_Tarefas',
+    github: 'https://github.com/PedroFaria14/Lista_de_Tarefas',
   },
   {
     title: { pt: 'Secret-Word', en: 'Secret-Word' },
@@ -248,7 +251,7 @@ export const allProjects: Project[] = [
     },
     stack: ['React', 'JavaScript'],
     category: 'frontend',
-    link: 'https://github.com/PedroFaria14/Secret-Word',
+    github: 'https://github.com/PedroFaria14/Secret-Word',
   },
   {
     title: { pt: 'Details_Movies', en: 'Details_Movies' },
@@ -258,7 +261,7 @@ export const allProjects: Project[] = [
     },
     stack: ['JavaScript'],
     category: 'frontend',
-    link: 'https://github.com/PedroFaria14/Details_Movies',
+    github: 'https://github.com/PedroFaria14/Details_Movies',
   },
   {
     title: { pt: 'Design-Lab', en: 'Design-Lab' },
@@ -268,7 +271,7 @@ export const allProjects: Project[] = [
     },
     stack: ['React', 'JavaScript', 'Firebase'],
     category: 'frontend',
-    link: 'https://github.com/PedroFaria14/Design-Lab',
+    github: 'https://github.com/PedroFaria14/Design-Lab',
   },
   {
     title: { pt: 'New_Home', en: 'New_Home' },
@@ -278,7 +281,7 @@ export const allProjects: Project[] = [
     },
     stack: ['JavaScript'],
     category: 'frontend',
-    link: 'https://github.com/PedroFaria14/New_Home',
+    github: 'https://github.com/PedroFaria14/New_Home',
   },
   // Outros
   {
@@ -286,7 +289,7 @@ export const allProjects: Project[] = [
     description: { pt: 'Projeto acadêmico.', en: 'Academic project.' },
     stack: ['C++'],
     category: 'other',
-    link: 'https://github.com/PedroFaria14/ProjetoAquario',
+    github: 'https://github.com/PedroFaria14/ProjetoAquario',
   },
   {
     title: { pt: '-AtaFlow', en: '-AtaFlow' },
@@ -303,7 +306,7 @@ export const allProjects: Project[] = [
     description: { pt: 'Jogo autoral.', en: 'Personal game.' },
     stack: ['Go'],
     category: 'other',
-    link: 'https://github.com/PedroFaria14/Jogo-survive-the-destruction',
+    github: 'https://github.com/PedroFaria14/Jogo-survive-the-destruction',
   },
   {
     title: { pt: 'Projeto-Agenda', en: 'Projeto-Agenda' },
@@ -313,7 +316,7 @@ export const allProjects: Project[] = [
     },
     stack: ['Python'],
     category: 'other',
-    link: 'https://github.com/PedroFaria14/Projeto-Agenda',
+    github: 'https://github.com/PedroFaria14/Projeto-Agenda',
   },
   {
     title: { pt: 'Calculadora-Python', en: 'Calculadora-Python' },
@@ -323,7 +326,7 @@ export const allProjects: Project[] = [
     },
     stack: ['Python'],
     category: 'other',
-    link: 'https://github.com/PedroFaria14/Calculadora-Python',
+    github: 'https://github.com/PedroFaria14/Calculadora-Python',
   },
   {
     title: { pt: '-WorkShop-JavaFX-JDBC', en: '-WorkShop-JavaFX-JDBC' },
@@ -333,14 +336,14 @@ export const allProjects: Project[] = [
     },
     stack: ['Java'],
     category: 'other',
-    link: 'https://github.com/PedroFaria14/-WorkShop-JavaFX-JDBC',
+    github: 'https://github.com/PedroFaria14/-WorkShop-JavaFX-JDBC',
   },
   {
     title: { pt: 'AsyncRunner', en: 'AsyncRunner' },
     description: { pt: 'Projeto autoral.', en: 'Personal project.' },
     stack: ['TypeScript'],
     category: 'other',
-    link: 'https://github.com/PedroFaria14/AsyncRunner',
+    github: 'https://github.com/PedroFaria14/AsyncRunner',
   },
 ];
 
