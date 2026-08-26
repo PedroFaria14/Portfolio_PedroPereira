@@ -10,8 +10,8 @@ function ProjectCard({ project }: { project: Project }) {
   const { title, description, stack, impact, link, github, video } = project
   const { locale, t } = useLanguage()
   return (
-    <div className="group flex h-full flex-col rounded-2xl border border-border bg-surface p-6 transition-colors duration-200 hover:border-accent">
-      <div className="mb-3 flex items-start justify-between gap-3">
+    <div className="group flex h-full flex-col rounded-2xl border border-border bg-surface p-5 text-center transition-colors duration-200 hover:border-accent sm:p-6 lg:text-left">
+      <div className="mb-3 flex flex-col items-center justify-between gap-3 lg:flex-row lg:items-start">
         <h3 className="font-display text-lg font-medium text-ink">{pick(locale, title)}</h3>
         <div className="flex items-center gap-3">
           {github && (
@@ -54,7 +54,7 @@ function ProjectCard({ project }: { project: Project }) {
 
       {impact && <p className="mt-3 text-sm font-medium text-accent">{pick(locale, impact)}</p>}
 
-      <div className="mt-4 flex flex-wrap gap-2 pt-1">
+      <div className="mt-4 flex flex-wrap justify-center gap-2 pt-1 lg:justify-start">
         {stack.map((s) => (
           <span
             key={s}
@@ -71,7 +71,7 @@ function ProjectCard({ project }: { project: Project }) {
 export function Projects() {
   const { t } = useLanguage()
   return (
-    <section id="projetos" className="mx-auto max-w-6xl px-6 py-24 sm:px-10 lg:px-16">
+    <section id="projetos" className="mx-auto max-w-6xl px-6 py-16 text-center sm:px-10 sm:py-24 lg:px-16 lg:text-left">
       <SectionHeader label={t('projects.label')} title={t('projects.title')} />
 
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

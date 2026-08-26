@@ -7,14 +7,14 @@ import { SectionHeader } from './SectionHeader'
 export function Education() {
   const { locale, t } = useLanguage()
   return (
-    <section id="educacao" className="mx-auto max-w-6xl px-6 py-24 sm:px-10 lg:px-16">
+    <section id="educacao" className="mx-auto max-w-6xl px-6 py-16 sm:px-10 sm:py-24 lg:px-16">
       <SectionHeader label={t('education.label')} title={t('education.title')} />
 
       <Reveal>
-        <div className="max-w-2xl space-y-4">
+        <div className="mx-auto max-w-2xl space-y-4 lg:mx-0">
           {education.map((e) => (
-            <div key={e.degree.pt} className="rounded-2xl border border-border bg-surface p-5">
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <div key={e.degree.pt} className="rounded-2xl border border-border bg-surface p-5 text-center sm:text-left">
+              <div className="flex flex-col items-center gap-2 sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-between">
                 <h3 className="font-display text-base font-medium text-ink">
                   {pick(locale, e.degree)}
                 </h3>

@@ -7,9 +7,9 @@ import { SectionHeader } from './SectionHeader'
 function ExperienceItem({ exp }: { exp: (typeof experience)[number] }) {
   const { locale } = useLanguage()
   return (
-    <Reveal className="relative pb-10 last:pb-0">
+    <Reveal className="relative pb-10 text-center last:pb-0 sm:text-left">
       <span className="absolute -left-[41px] top-1.5 h-3 w-3 rounded-full border-2 border-accent bg-base" />
-      <div className="flex flex-wrap items-baseline justify-between gap-2">
+      <div className="flex flex-col items-center gap-2 sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-between">
         <h3 className="font-display text-lg font-medium text-ink">{pick(locale, exp.role)}</h3>
         <span className="font-mono text-xs uppercase tracking-wide text-accent">{exp.period}</span>
       </div>
@@ -18,7 +18,7 @@ function ExperienceItem({ exp }: { exp: (typeof experience)[number] }) {
       {exp.responsibilities && (
         <ul className="mt-3 space-y-1.5">
           {exp.responsibilities.map((r) => (
-            <li key={r.pt} className="flex items-start gap-2 text-sm text-muted">
+            <li key={r.pt} className="flex items-start gap-2 text-left text-sm text-muted">
               <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
               {pick(locale, r)}
             </li>
@@ -32,7 +32,7 @@ function ExperienceItem({ exp }: { exp: (typeof experience)[number] }) {
 export function Experience() {
   const { t } = useLanguage()
   return (
-    <section id="experiencia" className="mx-auto max-w-6xl px-6 py-24 sm:px-10 lg:px-16">
+    <section id="experiencia" className="mx-auto max-w-6xl px-6 py-16 sm:px-10 sm:py-24 lg:px-16">
       <SectionHeader label={t('experience.label')} title={t('experience.title')} />
       <div className="relative border-l border-border pl-8">
         {experience.map((exp) => (

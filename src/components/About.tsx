@@ -8,12 +8,12 @@ import { SectionHeader } from './SectionHeader'
 export function About() {
   const { locale, t } = useLanguage()
   return (
-    <section id="sobre" className="mx-auto max-w-6xl px-6 py-24 sm:px-10 lg:px-16">
+    <section id="sobre" className="mx-auto max-w-6xl px-6 py-16 sm:px-10 sm:py-24 lg:px-16">
       <SectionHeader label={t('about.label')} title={t('about.title')} />
 
-      <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="mt-8 grid gap-8 text-center lg:grid-cols-[1.1fr_0.9fr] lg:text-left">
         <Reveal delay={0.05}>
-          <p className="font-display text-lg font-medium leading-relaxed text-ink">
+          <p className="font-display text-base font-medium leading-relaxed text-ink sm:text-lg">
             {pick(locale, profile.role)} com foco em{' '}
             <span className="text-accent">{pick(locale, profile.focus)}</span>.
           </p>
@@ -27,11 +27,11 @@ export function About() {
         </Reveal>
       </div>
 
-      <Reveal delay={0.15} className="mt-8">
-        <p className="font-mono text-sm uppercase tracking-[0.2em] text-subtle">
+      <Reveal delay={0.15} className="mt-8 text-center lg:text-left">
+        <p className="font-mono text-xs uppercase tracking-[0.18em] text-subtle sm:text-sm sm:tracking-[0.2em]">
           {t('about.softSkills')}
         </p>
-        <div className="mt-3 flex flex-wrap gap-2">
+        <div className="mt-3 flex flex-wrap justify-center gap-2 lg:justify-start">
           {softSkills.map((s, i) => (
             <Chip key={s.pt} index={i}>
               {pick(locale, s)}

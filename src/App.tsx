@@ -53,7 +53,7 @@ function Site() {
         <Contact />
       </main>
       <footer className="relative z-10 border-t border-border px-6 py-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 text-sm text-subtle sm:flex-row sm:px-10 lg:px-16">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 text-center text-sm text-subtle sm:flex-row sm:px-10 sm:text-left lg:px-16">
           <p>
             © {new Date().getFullYear()} {profile.name}
           </p>

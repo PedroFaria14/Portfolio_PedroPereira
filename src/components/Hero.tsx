@@ -41,7 +41,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative z-10 flex min-h-screen items-center px-6 pt-24 pb-16 sm:px-10 lg:px-16"
+      className="relative z-10 flex min-h-screen items-center px-6 pt-24 pb-16 text-center sm:px-10 lg:px-16 lg:text-left"
     >
       <motion.div
         className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]"
@@ -51,10 +51,10 @@ export function Hero() {
       >
         {/* Texto */}
         <motion.div variants={reduce ? undefined : item}>
-          <p className="mb-4 font-mono text-sm uppercase tracking-[0.2em] text-accent">
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-accent sm:text-sm sm:tracking-[0.2em]">
             {t('hero.hello')}
           </p>
-          <h1 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="font-display text-3xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
             <Typewriter text={nameParts.slice(0, 2).join(' ')} onDone={() => setLastName(true)} />
             {nameParts[2] && (
               <motion.span
@@ -67,15 +67,15 @@ export function Hero() {
               </motion.span>
             )}
           </h1>
-          <p className="mt-5 max-w-xl font-display text-xl font-medium text-ink sm:text-2xl">
+          <p className="mx-auto mt-5 max-w-xl font-display text-lg font-medium text-ink sm:text-2xl lg:mx-0">
             {pick(locale, profile.role)} •{' '}
             <span className="text-accent">{pick(locale, profile.focus)}</span>
           </p>
-          <p className="mt-4 max-w-xl text-base text-muted sm:text-lg">
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted sm:text-lg lg:mx-0">
             {pick(locale, profile.tagline)}
           </p>
 
-          <motion.div variants={reduce ? undefined : item} className="mt-8 flex flex-wrap gap-3">
+          <motion.div variants={reduce ? undefined : item} className="mt-8 flex flex-wrap justify-center gap-3 lg:justify-start">
             <a
               href={profile.links.linkedin}
               target="_blank"
