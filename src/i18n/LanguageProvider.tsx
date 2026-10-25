@@ -6,10 +6,10 @@ import { LanguageContext, type Locale } from './language'
 const STORAGE_KEY = 'portfolio-locale'
 
 function getInitialLocale(): Locale {
-  if (typeof window === 'undefined') return 'pt'
+  if (typeof window === 'undefined') return 'en'
   const stored = window.localStorage.getItem(STORAGE_KEY)
   if (stored === 'pt' || stored === 'en') return stored
-  return window.navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en'
+  return 'en'
 }
 
 function lookup(dict: Record<string, unknown>, key: string): string {
