@@ -504,23 +504,25 @@ export const courseCategories: { key: CourseCategoryKey; label: BiString }[] = [
     key: 'frontend',
     label: { pt: 'Frontend & JavaScript', en: 'Frontend & JavaScript' },
   },
-  { key: 'backend', label: { pt: 'Backend & APIs', en: 'Backend & APIs' } },
+  { key: 'backend', label: { pt: 'Backend, Java & APIs', en: 'Backend, Java & APIs' } },
   { key: 'web3', label: { pt: 'Blockchain & Web3', en: 'Blockchain & Web3' } },
-  { key: 'infra', label: { pt: 'Infra & DevOps', en: 'Infra & DevOps' } },
-  { key: 'data', label: { pt: 'Dados & BI', en: 'Data & BI' } },
+  { key: 'infra', label: { pt: 'Infraestrutura & DevOps', en: 'Infrastructure & DevOps' } },
+  { key: 'data', label: { pt: 'Dados, Power BI & Análise', en: 'Data, Power BI & Analytics' } },
   {
     key: 'foundations',
-    label: { pt: 'Fundamentos & IA', en: 'Fundamentals & AI' },
+    label: { pt: 'Fundamentos, IA & Desenvolvimento', en: 'Foundations, AI & Development' },
   },
 ];
 
 export type Course = {
   name: BiString;
   category: CourseCategoryKey;
-  status?: 'completed' | 'in-progress';
+  status: 'completed' | 'in-progress';
   institution?: string;
+  platform?: string;
   hours?: number;
-  completedAt?: string;
+  certificateUrl?: string;
+  nameLang?: 'pt-BR' | 'en';
   description?: BiString;
   highlight?: boolean;
 };
@@ -529,232 +531,232 @@ export const courses: Course[] = [
   {
     name: { pt: 'Desenvolvimento de APIs com .NET', en: 'Desenvolvimento de APIs com .NET' },
     institution: 'DIO — Digital Innovation One', hours: 15,
-    completedAt: '2026-11-16', status: 'completed', category: 'backend',
+    status: 'completed', category: 'backend', highlight: true, nameLang: 'pt-BR',
     description: { pt: 'Conhecimento complementar em desenvolvimento de APIs com .NET.', en: 'Complementary knowledge in API development with .NET.' },
   },
   {
     name: { pt: 'Itaú — Java com Inteligência Artificial', en: 'Itaú — Java com Inteligência Artificial' },
-    institution: 'DIO — Digital Innovation One', hours: 45,
-    status: 'in-progress', category: 'backend',
-    description: { pt: 'Conteúdos previstos: Java, orientação a objetos, Spring Boot e integração com IA Generativa.', en: 'Planned topics: Java, object-oriented programming, Spring Boot and Generative AI integration.' },
+    institution: 'Itaú / DIO', hours: 45,
+    status: 'completed', category: 'backend', highlight: true, nameLang: 'pt-BR',
+    description: { pt: 'Java, orientação a objetos, Spring Boot e integração com IA Generativa.', en: 'Java, object-oriented programming, Spring Boot and Generative AI integration.' },
   },
   {
     name: { pt: 'Kubernetes na Prática: Domine a Orquestração de Contêineres', en: 'Kubernetes na Prática: Domine a Orquestração de Contêineres' },
-    institution: 'CPQD · Pontifícia Universidade Católica do Paraná (PUCPR)',
-    status: 'in-progress', category: 'infra',
+    institution: 'CPQD / PUCPR',
+    status: 'completed', category: 'infra', highlight: true, nameLang: 'pt-BR',
     description: { pt: 'Curso de extensão com formação prática em orquestração de contêineres: configuração de clusters Kubernetes, gerenciamento de Pods e namespaces e uso de kubeadm, containerd e Flannel em ambiente de laboratório.', en: 'University extension course with hands-on container orchestration: configuring Kubernetes clusters, managing Pods and namespaces, and using kubeadm, containerd and Flannel in a lab environment.' },
   },
   {
     name: {
-      pt: 'TypeScript do básico ao avançado c/ React e Express (Udemy)',
-      en: 'TypeScript from basic to advanced w/ React and Express (Udemy)',
+      pt: 'TypeScript do Básico ao Avançado com React e Express',
+      en: 'TypeScript from Basic to Advanced with React and Express',
     },
-    category: 'frontend',
+    institution: 'Udemy', category: 'frontend', status: 'completed',
     highlight: true,
   },
   {
     name: {
-      pt: 'TypeScript Part 1: Evolving Your JavaScript (Alura)',
-      en: 'TypeScript Part 1: Evolving Your JavaScript (Alura)',
+      pt: 'TypeScript Part 1: Evolving Your JavaScript',
+      en: 'TypeScript Part 1: Evolving Your JavaScript',
     },
-    category: 'frontend',
+    institution: 'Alura', category: 'frontend', status: 'completed',
   },
   {
     name: {
-      pt: 'React do Básico ao Avançado (Udemy)',
-      en: 'React from Basic to Advanced (Udemy)',
+      pt: 'React do Básico ao Avançado',
+      en: 'React from Basic to Advanced',
     },
-    category: 'frontend',
+    institution: 'Udemy', category: 'frontend', status: 'completed',
     highlight: true,
   },
   {
     name: {
-      pt: 'Web Frontend Fundamentos: HTML5, CSS3 e JS (Udemy)',
-      en: 'Web Frontend Fundamentals: HTML5, CSS3 and JS (Udemy)',
+      pt: 'Web Frontend Fundamentos: HTML5, CSS3 e JavaScript',
+      en: 'Web Frontend Fundamentals: HTML5, CSS3 and JavaScript',
     },
-    category: 'frontend',
+    institution: 'Udemy', category: 'frontend', status: 'completed',
   },
   {
     name: { pt: 'Introdução a Vue', en: 'Introduction to Vue' },
-    category: 'frontend',
+    category: 'frontend', status: 'completed',
   },
   {
     name: {
-      pt: 'SOLID aplicado ao React (Alura)',
-      en: 'SOLID applied to React (Alura)',
+      pt: 'SOLID Aplicado ao React',
+      en: 'SOLID Applied to React',
     },
-    category: 'frontend',
+    institution: 'Alura', category: 'frontend', status: 'completed',
     highlight: true,
   },
   {
     name: {
-      pt: 'Go e Gin: Criando API REST com simplicidade (Alura)',
-      en: 'Go and Gin: Building REST APIs with simplicity (Alura)',
+      pt: 'Go e Gin: Criando API REST com Simplicidade',
+      en: 'Go and Gin: Building REST APIs with Simplicity',
     },
-    category: 'backend',
+    institution: 'Alura', category: 'backend', status: 'completed',
     highlight: true,
   },
   {
     name: {
-      pt: 'Go: a linguagem do Google (Alura)',
-      en: 'Go: the Google language (Alura)',
+      pt: 'Go: A Linguagem do Google',
+      en: 'Go: The Google Language',
     },
-    category: 'backend',
+    institution: 'Alura', category: 'backend', status: 'completed',
   },
   {
     name: {
-      pt: 'Go: Orientação a Objetos (Alura)',
-      en: 'Go: Object-Oriented Programming (Alura)',
+      pt: 'Go: Orientação a Objetos',
+      en: 'Go: Object-Oriented Programming',
     },
-    category: 'backend',
+    institution: 'Alura', category: 'backend', status: 'completed',
   },
   {
     name: {
-      pt: 'Go: Boas práticas em projetos (Alura)',
-      en: 'Go: Best practices in projects (Alura)',
+      pt: 'Go: Boas Práticas em Projetos',
+      en: 'Go: Best Practices in Projects',
     },
-    category: 'backend',
+    institution: 'Alura', category: 'backend', status: 'completed',
   },
   {
     name: {
-      pt: 'Trilha Alura: Aprenda a programar em Go (Alura)',
-      en: 'Alura Track: Learn to program in Go (Alura)',
+      pt: 'Trilha Aprenda a Programar em Go',
+      en: 'Learn to Program in Go Track',
     },
-    category: 'backend',
+    institution: 'Alura', category: 'backend', status: 'completed',
   },
   {
     name: {
-      pt: 'Java — Programação Orientada a Objetos (Udemy)',
-      en: 'Java — Object-Oriented Programming (Udemy)',
+      pt: 'Java — Programação Orientada a Objetos',
+      en: 'Java — Object-Oriented Programming',
     },
-    category: 'backend',
+    institution: 'Udemy', category: 'backend', status: 'completed',
     highlight: true,
   },
   {
     name: { pt: 'Java Web com JSP e MySQL', en: 'Java Web with JSP and MySQL' },
-    category: 'backend',
+    category: 'backend', status: 'completed',
   },
   {
     name: {
       pt: 'REST API com Docker e AWS',
       en: 'REST API with Docker and AWS',
     },
-    category: 'backend',
+    category: 'backend', status: 'completed',
   },
   {
     name: {
-      pt: 'Blockchain basics (Cyfrin Updraft)',
-      en: 'Blockchain basics (Cyfrin Updraft)',
+      pt: 'Blockchain Basics',
+      en: 'Blockchain Basics',
     },
-    category: 'web3',
+    institution: 'Cyfrin Updraft', category: 'web3', status: 'completed',
   },
   {
     name: {
-      pt: 'Blockchain: Aumente a confiança da sua aplicação (Alura)',
-      en: 'Blockchain: Increase your application trust (Alura)',
+      pt: 'Blockchain: Aumente a Confiança da Sua Aplicação',
+      en: 'Blockchain: Increase Trust in Your Application',
     },
-    category: 'web3',
+    institution: 'Alura', category: 'web3', status: 'completed',
   },
   {
     name: {
-      pt: 'Docker: Criando e gerenciando containers (Alura)',
-      en: 'Docker: Creating and managing containers (Alura)',
+      pt: 'Docker: Criando e Gerenciando Containers',
+      en: 'Docker: Creating and Managing Containers',
     },
-    category: 'infra',
+    institution: 'Alura', category: 'infra', status: 'completed',
     highlight: true,
   },
   {
     name: { pt: 'Endpoint Security', en: 'Endpoint Security' },
-    category: 'infra',
+    category: 'infra', status: 'completed',
   },
-  { name: { pt: '5G — Básico', en: '5G — Basic' }, category: 'infra' },
+  { name: { pt: '5G — Básico', en: '5G — Basic' }, category: 'infra', status: 'completed' },
   {
     name: {
-      pt: 'MongoDB: Validando dados (Alura)',
-      en: 'MongoDB: Validating data (Alura)',
+      pt: 'MongoDB: Validando Dados',
+      en: 'MongoDB: Validating Data',
     },
-    category: 'infra',
+    institution: 'Alura', category: 'infra', status: 'completed',
   },
   {
     name: {
-      pt: 'SOLID: Os 5 Princípios Para as Boas Práticas da POO',
+      pt: 'SOLID: Os 5 Princípios para as Boas Práticas da POO',
       en: 'SOLID: The 5 Principles for OOP Best Practices',
     },
-    category: 'foundations',
+    category: 'foundations', status: 'completed',
   },
   {
     name: {
       pt: 'Introdução à Inteligência Artificial',
       en: 'Introduction to Artificial Intelligence',
     },
-    category: 'foundations',
+    category: 'foundations', status: 'completed',
   },
   {
     name: {
       pt: 'Introdução a Machine Learning',
       en: 'Introduction to Machine Learning',
     },
-    category: 'foundations',
+    category: 'foundations', status: 'completed',
   },
   {
     name: {
       pt: 'Introdução ao Desenvolvimento de Jogos',
       en: 'Introduction to Game Development',
     },
-    category: 'foundations',
+    category: 'foundations', status: 'completed',
   },
   {
     name: {
       pt: 'Felicidade e Qualidade de Vida',
       en: 'Happiness and Quality of Life',
     },
-    category: 'foundations',
+    category: 'foundations', status: 'completed',
   },
   {
     name: {
-      pt: 'Microsoft Excel 2016 — Avançado (Fundação Bradesco)',
-      en: 'Microsoft Excel 2016 — Advanced (Fundação Bradesco)',
+      pt: 'Microsoft Excel 2016 — Avançado',
+      en: 'Microsoft Excel 2016 — Advanced',
     },
-    category: 'data',
+    institution: 'Fundação Bradesco', category: 'data', status: 'completed',
   },
   {
-    name: { pt: 'Introdução ao PowerBI', en: 'Introduction to Power BI' },
-    category: 'data',
+    name: { pt: 'Introdução ao Power BI', en: 'Introduction to Power BI' },
+    category: 'data', status: 'completed',
   },
   {
     name: { pt: 'Power BI Completo', en: 'Power BI Complete' },
-    category: 'data',
+    category: 'data', status: 'completed',
   },
   {
     name: {
       pt: 'Modelando Dados no Power BI',
       en: 'Modeling Data in Power BI',
     },
-    category: 'data',
+    category: 'data', status: 'completed',
   },
   {
     name: {
       pt: 'Análise de Dados no Power BI',
       en: 'Data Analysis in Power BI',
     },
-    category: 'data',
+    category: 'data', status: 'completed',
   },
   {
     name: {
       pt: 'Preparando Dados para Análise (Microsoft Power BI)',
       en: 'Preparing Data for Analysis (Microsoft Power BI)',
     },
-    category: 'data',
+    category: 'data', status: 'completed',
   },
   {
     name: {
-      pt: 'Coursera: Análise de Dados em R',
-      en: 'Coursera: Data Analysis in R',
+      pt: 'Análise de Dados em R',
+      en: 'Data Analysis in R',
     },
-    category: 'data',
+    platform: 'Coursera', category: 'data', status: 'completed',
   },
   {
-    name: { pt: 'Coursera: Análise de Dados', en: 'Coursera: Data Analysis' },
-    category: 'data',
+    name: { pt: 'Análise de Dados', en: 'Data Analysis' },
+    platform: 'Coursera', category: 'data', status: 'completed',
   },
 ];
