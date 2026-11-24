@@ -16,6 +16,7 @@ export interface Project {
   context?: BiString;
   quality?: ('tests' | 'ci' | 'docs')[];
   unavailable?: boolean;
+  preview?: { src: string; alt: BiString; caption: BiString };
 }
 
 export interface NavLink {
@@ -127,52 +128,56 @@ export const featuredProjects: Project[] = [
   {
     title: { pt: 'TechSnacks', en: 'TechSnacks' },
     description: {
-      pt: 'PDV Full Stack para estabelecimentos alimentícios: catálogo, pedidos e checkout com autenticação e permissões. Integra React/TypeScript a uma API Go/Gin e PostgreSQL com GORM.',
-      en: 'Full Stack POS for food businesses: catalog, orders and checkout with authentication and permissions. Connects React/TypeScript to a Go/Gin API and PostgreSQL with GORM.',
+      pt: 'PDV para catálogo, pedidos e checkout, com React, API Go/Gin, PostgreSQL e acesso por perfil.',
+      en: 'POS for catalog, orders and checkout, with React, a Go/Gin API, PostgreSQL and role-based access.',
     },
     stack: ['React', 'TypeScript', 'Go', 'Gin', 'PostgreSQL', 'Docker'],
     category: 'fullstack', categories: ['frontend', 'backend'],
     impact: { pt: 'Clean Architecture, regras de negócio isoladas e recuperação de checkout.', en: 'Clean Architecture, isolated business rules and checkout recovery.' },
     github: 'https://github.com/PedroFaria14/Project-Clean-Pos-Engine-TechSnacks',
     quality: ['tests', 'ci', 'docs'], featured: true,
+    preview: { src: '/projects/techsnacks.jpg', alt: { pt: 'Página de apresentação do TechSnacks e prévia ilustrativa do caixa.', en: 'TechSnacks presentation page with an illustrative POS preview.' }, caption: { pt: 'Home original · renderização local', en: 'Original home · local rendering' } },
   },
   {
     title: { pt: 'AsyncRunner', en: 'AsyncRunner' },
     description: {
-      pt: 'Dashboard React/TypeScript integrado a uma API HTTP e worker Go para acompanhar tarefas com prioridades, retries e webhooks. Armazenamento em memória, perdido ao reiniciar.',
-      en: 'React/TypeScript dashboard connected to an HTTP API and Go worker to track tasks with priorities, retries and webhooks. In-memory storage is lost on restart.',
+      pt: 'Dashboard React/TypeScript para acompanhar tarefas em um worker Go, com prioridades, retries e webhooks.',
+      en: 'React/TypeScript dashboard to track tasks in a Go worker, with priorities, retries and webhooks.',
     },
     stack: ['React', 'TypeScript', 'Go', 'React Query', 'Docker'],
     category: 'fullstack', categories: ['frontend', 'backend'],
     context: { pt: 'Projeto de estudo · armazenamento em memória', en: 'Study project · in-memory storage' },
-    impact: { pt: 'Um worker serial; entrega de webhooks best effort. Não é um sistema de produção.', en: 'One serial worker; best-effort webhook delivery. Not a production system.' },
+    impact: { pt: 'Fila com prioridades e até três tentativas. Dados perdidos ao reiniciar; não é um sistema de produção.', en: 'Priority queue with up to three attempts. Data is lost on restart; not a production system.' },
     github: 'https://github.com/PedroFaria14/AsyncRunner',
     quality: ['tests', 'ci', 'docs'], featured: true,
+    preview: { src: '/projects/asyncrunner.jpg', alt: { pt: 'Home do AsyncRunner com apresentação do fluxo de tarefas.', en: 'AsyncRunner home presenting the task workflow.' }, caption: { pt: 'Home pública · fluxo ilustrativo', en: 'Public home · illustrative workflow' } },
   },
   {
     title: { pt: 'Chess Studio', en: 'Chess Studio' },
     description: {
-      pt: 'Xadrez web contra Stockfish ou duas pessoas no mesmo dispositivo. Integra Angular a uma API Java 21/Spring Boot 3.5, com regras de jogo, histórico e retomada de partidas persistidas.',
-      en: 'Web chess against Stockfish or two people on the same device. Connects Angular to a Java 21/Spring Boot 3.5 API, with game rules, history and resuming saved matches.',
+      pt: 'Xadrez web em Angular e Java/Spring Boot, contra Stockfish ou duas pessoas no mesmo dispositivo.',
+      en: 'Angular and Java/Spring Boot web chess against Stockfish or two people on the same device.',
     },
     stack: ['Java 21', 'Spring Boot 3.5', 'Angular 22', 'TypeScript', 'PostgreSQL', 'Stockfish'],
     category: 'fullstack', categories: ['frontend', 'backend', 'java'],
-    impact: { pt: 'JPA/Flyway, H2 local, OpenAPI, Docker Compose e testes JUnit, MockMvc e Playwright.', en: 'JPA/Flyway, local H2, OpenAPI, Docker Compose and JUnit, MockMvc and Playwright tests.' },
+    impact: { pt: 'Partidas persistidas com histórico e retomada; API documentada e testes JUnit, MockMvc e Playwright.', en: 'Saved matches with history and resume; documented API and JUnit, MockMvc and Playwright tests.' },
     github: 'https://github.com/PedroFaria14/Chess-System-Java',
     quality: ['tests', 'ci', 'docs'], featured: true,
+    preview: { src: '/projects/chess.jpg', alt: { pt: 'Tabuleiro e interface de partida do Chess Studio contra Stockfish.', en: 'Chess Studio board and match interface against Stockfish.' }, caption: { pt: 'Interface real · captura do repositório', en: 'Actual interface · repository screenshot' } },
   },
   {
     title: { pt: 'Survive the Destruction', en: 'Survive the Destruction' },
     description: {
-      pt: 'Jogo multiplayer em tempo real com React e Go. WebSocket sincroniza jogadores e arena com estado autoritativo no servidor, placar em PostgreSQL e controles responsivos para teclado e toque.',
-      en: 'Real-time multiplayer game built with React and Go. WebSocket synchronizes players and arena with server-authoritative state, PostgreSQL scores and responsive keyboard and touch controls.',
+      pt: 'Jogo multiplayer em React e Go, com salas em tempo real via WebSocket e placar em PostgreSQL.',
+      en: 'React and Go multiplayer game with real-time WebSocket rooms and PostgreSQL scores.',
     },
     stack: ['React', 'Go', 'WebSocket', 'PostgreSQL', 'Canvas API'],
     category: 'fullstack', categories: ['frontend', 'backend'],
-    impact: { pt: 'Comunicação cliente-servidor, salas independentes e reconexão com backoff.', en: 'Client-server communication, independent rooms and reconnection with backoff.' },
+    impact: { pt: 'Estado sincronizado pelo servidor e controles para teclado e toque.', en: 'Server-synchronized state with keyboard and touch controls.' },
     link: 'https://survive.phfaria.com/',
     github: 'https://github.com/PedroFaria14/Jogo-survive-the-destruction',
     quality: ['tests', 'docs'], featured: true,
+    preview: { src: '/projects/survive.jpg', alt: { pt: 'Partida de Survive the Destruction com jogadores e arena.', en: 'Survive the Destruction match showing players and arena.' }, caption: { pt: 'Gameplay real · captura do repositório', en: 'Actual gameplay · repository screenshot' } },
   },
   {
     title: {
@@ -180,33 +185,35 @@ export const featuredProjects: Project[] = [
       en: 'CodePath (Educational App)',
     },
     description: {
-      pt: 'App educacional gamificado em Flutter/Dart com trilhas, exercícios e desafios. A API Python/FastAPI gerencia sessões e valida pontuações, com persistência no Firestore.',
-      en: 'Gamified Flutter/Dart learning app with paths, exercises and challenges. A Python/FastAPI API manages sessions and validates scores, with Firestore persistence.',
+      pt: 'App Flutter de ensino de programação com trilhas e desafios, API FastAPI e dados no Firestore.',
+      en: 'Flutter programming learning app with paths and challenges, a FastAPI API and Firestore data.',
     },
     stack: ['Flutter', 'Dart', 'Python', 'FastAPI', 'Firestore'],
     category: 'fullstack', categories: ['backend', 'ai'],
     context: { pt: 'Projeto acadêmico · preparação para release Android', en: 'Academic project · Android release preparation' },
     impact: {
-      pt: 'Testes automatizados e CI Android; explicações com Gemini quando configurado. Publicação na loja pendente.',
-      en: 'Automated tests and Android CI; Gemini explanations when configured. Store publication pending.',
+      pt: 'Sessões autenticadas e pontuação validada no servidor. Publicação Android pendente.',
+      en: 'Authenticated sessions and server-validated scores. Android publication pending.',
     },
     github: 'https://github.com/PedroFaria14/Projeto_CodePath',
     video: 'https://www.youtube.com/watch?v=UzxwLV0mMh4',
     quality: ['tests', 'ci', 'docs'],
     featured: true,
+    preview: { src: '/projects/codepath.jpg', alt: { pt: 'Tela de trilhas do CodePath exibida no vídeo de demonstração.', en: 'CodePath learning paths screen shown in the demonstration video.' }, caption: { pt: 'Prévia do vídeo de demonstração', en: 'Demonstration video preview' } },
   },
   {
     title: { pt: 'Jungle Gaming — Teste técnico', en: 'Jungle Gaming — Technical assessment' },
     description: {
-      pt: 'Serviço distribuído para transações de apostas via HTTP e SQS/LocalStack. NestJS/TypeScript e PostgreSQL/TypeORM sustentam idempotência persistente e controle de concorrência por carteira.',
-      en: 'Distributed service for wagering transactions over HTTP and SQS/LocalStack. NestJS/TypeScript and PostgreSQL/TypeORM support persistent idempotency and per-wallet concurrency control.',
+      pt: 'Serviço NestJS de transações via HTTP e SQS/LocalStack, com PostgreSQL e TypeORM.',
+      en: 'NestJS transaction service over HTTP and SQS/LocalStack, with PostgreSQL and TypeORM.',
     },
     stack: ['TypeScript', 'NestJS', 'PostgreSQL', 'TypeORM', 'SQS / LocalStack', 'Docker'],
     category: 'backend',
     context: { pt: 'Projeto de teste técnico', en: 'Technical assessment project' },
-    impact: { pt: 'Inbox/outbox transacional, testes de integração e Playwright; testes de carga documentados em ambiente local.', en: 'Transactional inbox/outbox, integration and Playwright tests; documented local load tests.' },
+    impact: { pt: 'Idempotência persistente, concorrência por carteira e inbox/outbox transacional; carga validada em ambiente local.', en: 'Persistent idempotency, per-wallet concurrency and transactional inbox/outbox; locally validated load tests.' },
     github: 'https://github.com/PedroFaria14/Teste-tecnico-Jungle-Gaming',
     quality: ['tests', 'ci', 'docs'], featured: true,
+    preview: { src: '/projects/jungle.jpg', alt: { pt: 'Documentação Swagger do contrato de carteiras e transações do Jungle Gaming.', en: 'Swagger documentation of the Jungle Gaming wallet and transaction contract.' }, caption: { pt: 'Contrato OpenAPI · renderização local', en: 'OpenAPI contract · local rendering' } },
   },
 ];
 
@@ -445,7 +452,7 @@ export const experience = [
       pt: 'Estagiário de TI — Infraestrutura',
       en: 'IT Intern — Infrastructure',
     },
-    org: { pt: 'Suporte Técnico', en: 'Technical Support' },
+    org: { pt: 'Galena Farmacêutica', en: 'Galena Farmacêutica' },
     period: { pt: '06/2024 — 02/2025', en: '06/2024 — 02/2025' },
     description: {
       pt: 'Suporte técnico e manutenção de infraestrutura para garantir disponibilidade das ferramentas de trabalho.',
@@ -515,6 +522,7 @@ export type Course = {
   hours?: number;
   completedAt?: string;
   description?: BiString;
+  highlight?: boolean;
 };
 
 export const courses: Course[] = [
@@ -542,6 +550,7 @@ export const courses: Course[] = [
       en: 'TypeScript from basic to advanced w/ React and Express (Udemy)',
     },
     category: 'frontend',
+    highlight: true,
   },
   {
     name: {
@@ -556,6 +565,7 @@ export const courses: Course[] = [
       en: 'React from Basic to Advanced (Udemy)',
     },
     category: 'frontend',
+    highlight: true,
   },
   {
     name: {
@@ -574,6 +584,7 @@ export const courses: Course[] = [
       en: 'SOLID applied to React (Alura)',
     },
     category: 'frontend',
+    highlight: true,
   },
   {
     name: {
@@ -581,6 +592,7 @@ export const courses: Course[] = [
       en: 'Go and Gin: Building REST APIs with simplicity (Alura)',
     },
     category: 'backend',
+    highlight: true,
   },
   {
     name: {
@@ -616,6 +628,7 @@ export const courses: Course[] = [
       en: 'Java — Object-Oriented Programming (Udemy)',
     },
     category: 'backend',
+    highlight: true,
   },
   {
     name: { pt: 'Java Web com JSP e MySQL', en: 'Java Web with JSP and MySQL' },
@@ -648,6 +661,7 @@ export const courses: Course[] = [
       en: 'Docker: Creating and managing containers (Alura)',
     },
     category: 'infra',
+    highlight: true,
   },
   {
     name: { pt: 'Endpoint Security', en: 'Endpoint Security' },

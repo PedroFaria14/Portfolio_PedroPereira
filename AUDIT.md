@@ -46,6 +46,12 @@ Nos destaques com indicador de CI, foi confirmada a existência de workflow em `
 
 ## Limites técnicos
 
-- O site permanece uma SPA React/Vite. Metadados estáticos em inglês; idioma do documento, título e descrições atualizados no navegador ao trocar PT/EN.
+- O site permanece uma SPA React/Vite. Metadados estáticos em português; idioma inicial conforme preferência salva ou navegador (inglês como fallback), sem geolocalização. Idioma do documento, título e descrições acompanham PT/EN.
 - Sem URLs separadas por idioma ou prerenderização. Não atribuir métricas de Core Web Vitals sem medição específica.
 - Nenhum deploy, publicação em loja ou execução de transações blockchain faz parte desta atualização do portfólio.
+
+## Complemento de apresentação
+
+- Empresa da experiência anterior confirmada pelo autor: **Galena Farmacêutica**, preservando cargo, datas e responsabilidades.
+- Fontes e natureza das seis prévias: [public/projects/SOURCES.md](public/projects/SOURCES.md). Capturas de interfaces não equivalem a validação de integrações em produção.
+- A home do TechSnacks foi renderizada localmente a partir dos componentes e estilos originais; o Jungle Gaming apresenta o contrato OpenAPI, não uma interface de produto inventada.

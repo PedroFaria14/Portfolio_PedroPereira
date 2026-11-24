@@ -20,7 +20,7 @@ Site pessoal de apresentação profissional, contendo:
 - **Experiência profissional** e **Escolaridade**
 - **Cursos & Certificações** com conclusão confirmada, cursos em andamento e formação complementar em seis categorias
 - **Contato** com links para LinkedIn, GitHub e e-mail
-- **i18n PT/EN**: inglês por padrão + seletor manual e persistência da preferência em `localStorage`; idioma do documento e metadados acompanham a seleção
+- **i18n PT/EN**: preferência salva tem prioridade; em novas visitas, primeiro idioma suportado do navegador (português ou inglês), com inglês como fallback. Seletor manual; documento e metadados acompanham a seleção
 - **Animações de fundo**: partículas reativas ao mouse, glow com mouse-follow, indicador de seção ativa
 
 ---
@@ -92,7 +92,7 @@ src/
 │   └── portfolio.ts   # TODOS os dados editáveis do site
 ├── i18n/
 │   ├── language.ts    # Contexto + hook useLanguage
-│   ├── LanguageProvider.tsx   # Provider (inglês padrão + persistência + metadados)
+│   ├── LanguageProvider.tsx   # Provider (idioma do navegador + persistência + metadados)
 │   ├── translations.ts        # Dicionário PT/EN da UI
 │   └── i18n.ts        # Tipos e helper pick()
 ├── App.tsx            # Composição das seções
@@ -121,7 +121,7 @@ role: {
 - `softSkills` — lista de soft skills
 - `skills` — agrupadas em `languages`, `frameworks`, `web3`, `infra`, `foundations`
 - `featuredProjects` / `allProjects` — destaques e catálogo secundário, respectivamente; cada projeto deve existir em apenas uma das listas
-- Campos de projeto: `title`, `description`, `stack`, `impact`, `github`, `link`, `video`, `category`, `categories`, `context` e `quality`
+- Campos de projeto: `title`, `description`, `stack`, `impact`, `github`, `link`, `video`, `category`, `categories`, `context`, `quality` e `preview` (imagem, alt e legenda bilíngues)
 - `quality` — indicadores `tests`, `ci` e `docs`, somente quando há evidência no repositório
 - `unavailable` — preserva registros antigos fora do catálogo ativo, sem exibir links quebrados
 - `experience` — itens de experiência
@@ -141,7 +141,9 @@ Cursos com `status: 'completed'` aparecem como concluídos e cursos com `status:
 - Repositórios indisponíveis são mantidos em um arquivo secundário acessível pelo filtro **Todos**.
 - Fontes, limitações e links da auditoria: [AUDIT.md](AUDIT.md).
 
-Os metadados estáticos usam inglês, acompanhando o idioma padrão. A troca de idioma atualiza o documento no navegador. Não há URLs separadas por idioma ou prerenderização; crawlers que não executam JavaScript recebem os metadados ingleses. Canonical, Open Graph, robots e sitemap usam o domínio final `www.phfaria.com`, destino do redirecionamento do domínio sem `www`.
+Os metadados estáticos usam português. A seleção inicial considera o navegador e a preferência salva, sem geolocalização; a troca de idioma atualiza o documento. Não há URLs separadas por idioma ou prerenderização. Canonical, Open Graph, robots e sitemap usam `www.phfaria.com`.
+
+Os destaques possuem prévias locais com dimensões reservadas, lazy loading e legendas que distinguem interface real, miniatura de vídeo e documentação de API. Fontes: [public/projects/SOURCES.md](public/projects/SOURCES.md). Cursos com `highlight: true` ficam visíveis; os demais cursos sem status explícito aparecem em um disclosure acessível, sem exclusão de registros.
 
 ---
 

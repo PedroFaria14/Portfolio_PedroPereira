@@ -8,17 +8,25 @@ import { Reveal } from './Reveal'
 import { SectionHeader } from './SectionHeader'
 
 function ProjectCard({ project }: { project: Project }) {
-  const { title, description, stack, impact, link, github, video, context, quality } = project
+  const { title, description, stack, impact, link, github, video, context, quality, preview } = project
   const { locale, t } = useLanguage()
   return (
-    <article className="group flex h-full flex-col rounded-2xl border border-border bg-surface p-5 text-center transition-colors duration-200 hover:border-accent sm:p-6 lg:text-left">
+    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface p-5 text-left transition-colors duration-200 hover:border-accent sm:p-6">
+      {preview && (
+        <figure className="-mx-5 -mt-5 mb-5 border-b border-border sm:-mx-6 sm:-mt-6">
+          <a href={video ?? github ?? link} target="_blank" rel="noreferrer" aria-label={`${t('projects.preview')} — ${pick(locale, title)}`} className="block overflow-hidden bg-base focus-visible:outline-offset-[-4px]">
+            <img src={preview.src} alt={pick(locale, preview.alt)} width={960} height={540} loading="lazy" decoding="async"
+              className="aspect-video h-auto w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-[1.02]" />
+          </a>
+          <figcaption className="px-5 py-2 text-xs leading-relaxed text-muted sm:px-6">{pick(locale, preview.caption)}</figcaption>
+        </figure>
+      )}
       <p className="mb-2 font-mono text-xs text-accent">{t(`projects.categories.${project.category}`)}</p>
       <h3 className="font-display text-lg font-medium text-ink">{pick(locale, title)}</h3>
       {context && <p className="mt-2 text-xs leading-relaxed text-muted">{pick(locale, context)}</p>}
-      <div className="mt-3" />
-      <p className="flex-1 text-sm leading-relaxed text-muted">{pick(locale, description)}</p>
-      {impact && <p className="mt-3 text-sm font-medium text-accent">{pick(locale, impact)}</p>}
-      <div className="mt-4 flex flex-wrap justify-center gap-2 pt-1 lg:justify-start">
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{pick(locale, description)}</p>
+      {impact && <div className="mt-4 border-l-2 border-accent/50 pl-3"><p className="mb-1 font-mono text-xs text-accent">{t('projects.highlight')}</p><p className="text-sm leading-relaxed text-ink">{pick(locale, impact)}</p></div>}
+      <div className="mt-4 flex flex-wrap gap-2 pt-1">
         {stack.map((s) => (
           <span
             key={s}
@@ -29,11 +37,11 @@ function ProjectCard({ project }: { project: Project }) {
         ))}
       </div>
       {quality && (
-        <ul aria-label={t('projects.quality')} className="mt-4 flex flex-wrap justify-center gap-x-3 gap-y-1 text-xs text-muted lg:justify-start">
+        <ul aria-label={t('projects.quality')} className="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted">
           {quality.map((item) => <li key={item}>✓ {t(`projects.${item}`)}</li>)}
         </ul>
       )}
-      <div className="mt-5 flex flex-wrap justify-center gap-2 border-t border-border pt-4 lg:justify-start">
+      <div className="mt-5 flex flex-wrap gap-2 border-t border-border pt-4">
         {github && <ProjectLink href={github} label={t('projects.repository')} title={pick(locale, title)}><GithubIcon className="h-4 w-4" /></ProjectLink>}
         {link && <ProjectLink href={link} label={t('projects.demo')} title={pick(locale, title)}><Globe className="h-4 w-4" /></ProjectLink>}
         {video && <ProjectLink href={video} label={t('projects.video')} title={pick(locale, title)}><Video className="h-4 w-4" /></ProjectLink>}
@@ -64,7 +72,7 @@ export function Projects() {
   )
   return (
     <section id="projetos" className="mx-auto max-w-6xl px-6 py-16 text-center sm:px-10 sm:py-24 lg:px-16 lg:text-left">
-      <SectionHeader label={t('projects.label')} title={t('projects.title')} />
+      <SectionHeader label={t('projects.label')} title={t(filter === 'featured' ? 'projects.title' : 'projects.allTitle')} />
       <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted">{t('projects.intro')}</p>
       <div role="group" aria-label={t('projects.filter')} className="mb-5 flex flex-wrap justify-center gap-2 lg:justify-start">
         {filters.map((value) => (

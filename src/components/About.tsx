@@ -11,20 +11,21 @@ export function About() {
     <section id="sobre" className="mx-auto max-w-6xl px-6 py-16 sm:px-10 sm:py-24 lg:px-16">
       <SectionHeader label={t('about.label')} title={t('about.title')} />
 
-      <div className="mt-8 grid gap-8 text-center lg:grid-cols-[1.1fr_0.9fr] lg:text-left">
-        <Reveal delay={0.05}>
+      <div className="mt-8 text-left">
+        <Reveal delay={0.05} className="max-w-3xl">
           <p className="font-display text-base font-medium leading-relaxed text-ink sm:text-lg">
             {pick(locale, profile.role)} {t('about.focusedOn')}{' '}
             <span className="text-accent">{pick(locale, profile.focus)}</span>.
           </p>
+          <p className="mt-4 leading-relaxed text-muted">{pick(locale, profile.about[0])}</p>
         </Reveal>
-        <Reveal delay={0.1}>
-          <div className="space-y-4 text-muted">
-            {profile.about.map((p, i) => (
-              <p key={i}>{pick(locale, p)}</p>
-            ))}
-          </div>
-        </Reveal>
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          {profile.about.slice(1).map((paragraph, i) => (
+            <Reveal key={paragraph.pt} delay={0.1 + i * 0.05}>
+              <p className="border-l-2 border-accent/40 pl-4 leading-relaxed text-muted">{pick(locale, paragraph)}</p>
+            </Reveal>
+          ))}
+        </div>
       </div>
 
       <Reveal delay={0.15} className="mt-8 text-center lg:text-left">

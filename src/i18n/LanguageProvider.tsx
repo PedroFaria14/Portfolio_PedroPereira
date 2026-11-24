@@ -7,9 +7,11 @@ const STORAGE_KEY = 'portfolio-locale'
 
 function getInitialLocale(): Locale {
   if (typeof window === 'undefined') return 'en'
-  const stored = window.localStorage.getItem(STORAGE_KEY)
+  let stored: string | null = null
+  try { stored = window.localStorage.getItem(STORAGE_KEY) } catch { /* Storage may be unavailable in private contexts. */ }
   if (stored === 'pt' || stored === 'en') return stored
-  return 'en'
+  const language = window.navigator.languages.find((value) => /^(pt|en)(-|$)/i.test(value)) ?? window.navigator.language
+  return /^pt(-|$)/i.test(language) ? 'pt' : 'en'
 }
 
 function lookup(dict: Record<string, unknown>, key: string): string {
@@ -28,7 +30,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(getInitialLocale)
 
   useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, locale)
+    try { window.localStorage.setItem(STORAGE_KEY, locale) } catch { /* Language switching still works without persistence. */ }
     document.documentElement.lang = locale === 'pt' ? 'pt-BR' : 'en'
     const metadata = translations[locale].metadata
     document.title = metadata.title

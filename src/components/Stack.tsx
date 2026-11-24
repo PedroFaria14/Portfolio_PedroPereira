@@ -30,7 +30,7 @@ export function Stack() {
                 {skills[group.key].map((skill, si) => {
                   const label = typeof skill === 'string' ? skill : pick(locale, skill as BiString)
                   return (
-                    <Chip key={label} index={si}>
+                    <Chip key={label} index={si} emphasis={['React', 'TypeScript', 'Go (Golang)', 'Python'].includes(label)}>
                       {label}
                     </Chip>
                   )

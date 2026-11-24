@@ -34,11 +34,19 @@ export function Courses() {
           </div>
         ))}
       </div>
-      <h3 className="mb-6 font-display text-lg text-ink">{t('courses.additional')}</h3>
+      <h3 className="mb-4 font-display text-lg text-ink">{t('courses.relevant')}</h3>
+      <ul className="mb-6 flex flex-wrap gap-2">
+        {courses.filter((course) => course.highlight && !course.status).map((course) => (
+          <li key={course.name.pt} className="rounded-lg border border-border bg-surface px-3 py-2 text-sm text-muted">{pick(locale, course.name)}</li>
+        ))}
+      </ul>
       <Reveal>
-        <div className="space-y-10">
+        <details className="rounded-xl border border-border p-5">
+          <summary className="cursor-pointer py-2 text-sm text-ink">{t('courses.viewMore')} ({courses.filter((course) => !course.status && !course.highlight).length})</summary>
+          <div className="mt-6 space-y-6">
           {courseCategories.map((category) => {
-            const items = courses.filter((c) => c.category === category.key && !c.status)
+            const items = courses.filter((c) => c.category === category.key && !c.status && !c.highlight)
+            if (!items.length) return null
             return (
               <div key={category.key} className="text-center lg:text-left">
                 <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.12em] text-accent sm:tracking-[0.15em]">
@@ -57,7 +65,8 @@ export function Courses() {
               </div>
             )
           })}
-        </div>
+          </div>
+        </details>
       </Reveal>
     </section>
   )
