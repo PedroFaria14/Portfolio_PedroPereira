@@ -29,6 +29,7 @@ export const translations = {
     about: {
       label: 'sobre',
       title: 'Sobre mim',
+      focusedOn: 'com foco em',
       softSkills: 'soft skills',
     },
     stack: {
@@ -121,6 +122,7 @@ export const translations = {
     about: {
       label: 'about',
       title: 'About me',
+      focusedOn: 'focused on',
       softSkills: 'soft skills',
     },
     stack: {

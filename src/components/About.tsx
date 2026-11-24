@@ -14,7 +14,7 @@ export function About() {
       <div className="mt-8 grid gap-8 text-center lg:grid-cols-[1.1fr_0.9fr] lg:text-left">
         <Reveal delay={0.05}>
           <p className="font-display text-base font-medium leading-relaxed text-ink sm:text-lg">
-            {pick(locale, profile.role)} com foco em{' '}
+            {pick(locale, profile.role)} {t('about.focusedOn')}{' '}
             <span className="text-accent">{pick(locale, profile.focus)}</span>.
           </p>
         </Reveal>
