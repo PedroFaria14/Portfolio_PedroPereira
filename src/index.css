@@ -8,7 +8,7 @@
   --color-border: #23262c;
   --color-ink: #f4f2ed;
   --color-muted: #a3a6ac;
-  --color-subtle: #6b6e75;
+  --color-subtle: #92969e;
   --color-accent: #c9a44a;
   --color-accent-hover: #d9b85e;
   --color-success: #7a9e5b;
@@ -31,6 +31,11 @@
 
   body {
     @apply bg-base text-ink font-sans antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
   }
 
   ::selection {
@@ -59,6 +64,16 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
     .typewriter-caret {
       animation: none;
     }

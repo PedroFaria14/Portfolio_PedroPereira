@@ -126,7 +126,11 @@ export function Hero() {
             >
               <img
                 src={profile.photo}
-                alt={`Foto de ${profile.name}`}
+                alt={`${t('hero.photo')} ${profile.name}`}
+                width={288}
+                height={360}
+                fetchPriority="high"
+                decoding="async"
                 className="h-auto w-56 object-cover transition-transform duration-500 sm:w-64 lg:w-72 group-hover:scale-105"
                 style={{ aspectRatio: '4 / 5' }}
               />

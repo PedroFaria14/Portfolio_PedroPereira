@@ -1,5 +1,7 @@
 import type { BiString } from '../i18n/i18n';
 
+export type ProjectCategory = 'web3' | 'backend' | 'frontend' | 'fullstack' | 'java' | 'ai' | 'other';
+
 export interface Project {
   title: BiString;
   description: BiString;
@@ -9,7 +11,11 @@ export interface Project {
   github?: string;
   video?: string;
   featured?: boolean;
-  category: 'web3' | 'backend' | 'frontend' | 'other';
+  category: ProjectCategory;
+  categories?: ProjectCategory[];
+  context?: BiString;
+  quality?: ('tests' | 'ci' | 'docs')[];
+  unavailable?: boolean;
 }
 
 export interface NavLink {
@@ -26,26 +32,30 @@ export interface NavLink {
 export const profile = {
   name: 'Pedro Henrique de Faria Pereira',
   role: {
-    pt: 'Desenvolvedor Full Stack',
-    en: 'Full Stack Developer',
+    pt: 'Desenvolvedor Frontend & Full Stack Júnior',
+    en: 'Junior Frontend & Full Stack Developer',
   },
   focus: {
-    pt: 'Sistemas Escaláveis & Web3',
-    en: 'Scalable Systems & Web3',
+    pt: 'React & TypeScript',
+    en: 'React & TypeScript',
   },
   // tagline curta exibida no hero
   tagline: {
-    pt: 'Desenvolvimento Full Stack e construção de sistemas escaláveis, com forte atuação em Web3.',
-    en: 'Full Stack development building scalable systems, with strong Web3 expertise.',
+    pt: 'Interfaces com React e TypeScript, integradas a APIs e regras de negócio. Experiência profissional com Go e Python e projetos pessoais que conectam frontend, backend e dados.',
+    en: 'React and TypeScript interfaces connected to APIs and business logic. Professional experience with Go and Python, alongside personal projects connecting frontend, backend and data.',
   },
   about: [
     {
-      pt: 'Com forte foco em sistemas escaláveis e tecnologia blockchain, atuo no ciclo completo de desenvolvimento de software e modelagem arquitetural (P&D) até o deploy.',
-      en: 'Strongly focused on scalable systems and blockchain technology, I work across the complete software development cycle and architectural modeling (R&D) through to deployment.',
+      pt: 'Busco oportunidades Frontend e Full Stack Júnior, com foco em React e TypeScript. Nos meus projetos pessoais e acadêmicos, construo interfaces responsivas, integro APIs e trabalho com persistência e testes, usando também Java/Spring Boot, Angular e Flutter.',
+      en: 'I am seeking Junior Frontend and Full Stack opportunities, focused on React and TypeScript. In personal and academic projects, I build responsive interfaces, integrate APIs and work with persistence and tests, also using Java/Spring Boot, Angular and Flutter.',
     },
     {
-      pt: 'Formado em Análise e Desenvolvimento de Sistemas e atual estudante de Engenharia da Computação, aplico os fundamentos de ciência da computação e boas práticas de engenharia para construir soluções eficientes, tanto em ambientes Web2 estruturados quanto em ecossistemas descentralizados (Web3).',
-      en: 'Graduated in Systems Analysis and Development and current Computer Engineering student, I apply computer science fundamentals and sound engineering practices to build efficient solutions, both in structured Web2 environments and decentralized (Web3) ecosystems.',
+      pt: 'No CPQD, atuo como estagiário de Desenvolvimento de Software (Blockchain), com Go, Python, APIs REST, Docker e Jenkins/CI/CD em projetos de blockchain e identidade digital. Minha experiência anterior em infraestrutura complementa essa visão de integração de sistemas.',
+      en: 'At CPQD, I work as a Software Development Intern (Blockchain), using Go, Python, REST APIs, Docker and Jenkins/CI/CD on blockchain and digital identity projects. Previous IT infrastructure experience complements this systems integration perspective.',
+    },
+    {
+      pt: 'Concluí Análise e Desenvolvimento de Sistemas na Universidade Cruzeiro do Sul em julho de 2026 e curso Engenharia da Computação na USF, com conclusão prevista para dezembro de 2028. IA, automação e Web3 são áreas complementares de estudo e experimentação.',
+      en: 'I completed my degree in Systems Analysis and Development at Universidade Cruzeiro do Sul in July 2026 and am studying Computer Engineering at USF, with expected graduation in December 2028. AI, automation and Web3 are complementary areas of study and experimentation.',
     },
   ],
   photo: '/photo.jpg',
@@ -69,20 +79,23 @@ export const navLinks: NavLink[] = [
 
 export const skills = {
   languages: [
-    'Python',
-    'JavaScript',
     'TypeScript',
+    'JavaScript',
+    'Python',
     'Go (Golang)',
     'Java',
     'C',
     'Solidity',
     'Dart',
   ],
-  frameworks: ['React', 'Express', 'FastAPI', 'Flutter', 'Gin'],
+  frameworks: ['React', 'Angular', 'Spring Boot', 'FastAPI', 'Gin', 'NestJS', 'Flutter', 'Express'],
   web3: ['Smart Contracts', 'MetaMask', 'Hardhat', 'Solana', 'Anchor'],
   infra: [
     'Git/GitHub',
     'Docker',
+    'PostgreSQL',
+    'GitHub Actions',
+    'Jenkins',
     'Firebase',
     'MongoDB',
     'APIs REST',
@@ -112,22 +125,113 @@ export const softSkills: BiString[] = [
 
 export const featuredProjects: Project[] = [
   {
+    title: { pt: 'TechSnacks', en: 'TechSnacks' },
+    description: {
+      pt: 'PDV Full Stack para estabelecimentos alimentícios: catálogo, pedidos e checkout com autenticação e permissões. Integra React/TypeScript a uma API Go/Gin e PostgreSQL com GORM.',
+      en: 'Full Stack POS for food businesses: catalog, orders and checkout with authentication and permissions. Connects React/TypeScript to a Go/Gin API and PostgreSQL with GORM.',
+    },
+    stack: ['React', 'TypeScript', 'Go', 'Gin', 'PostgreSQL', 'Docker'],
+    category: 'fullstack', categories: ['frontend', 'backend'],
+    impact: { pt: 'Clean Architecture, regras de negócio isoladas e recuperação de checkout.', en: 'Clean Architecture, isolated business rules and checkout recovery.' },
+    github: 'https://github.com/PedroFaria14/Project-Clean-Pos-Engine-TechSnacks',
+    quality: ['tests', 'ci', 'docs'], featured: true,
+  },
+  {
+    title: { pt: 'AsyncRunner', en: 'AsyncRunner' },
+    description: {
+      pt: 'Dashboard React/TypeScript integrado a uma API HTTP e worker Go para acompanhar tarefas com prioridades, retries e webhooks. Armazenamento em memória, perdido ao reiniciar.',
+      en: 'React/TypeScript dashboard connected to an HTTP API and Go worker to track tasks with priorities, retries and webhooks. In-memory storage is lost on restart.',
+    },
+    stack: ['React', 'TypeScript', 'Go', 'React Query', 'Docker'],
+    category: 'fullstack', categories: ['frontend', 'backend'],
+    context: { pt: 'Projeto de estudo · armazenamento em memória', en: 'Study project · in-memory storage' },
+    impact: { pt: 'Um worker serial; entrega de webhooks best effort. Não é um sistema de produção.', en: 'One serial worker; best-effort webhook delivery. Not a production system.' },
+    github: 'https://github.com/PedroFaria14/AsyncRunner',
+    quality: ['tests', 'ci', 'docs'], featured: true,
+  },
+  {
+    title: { pt: 'Chess Studio', en: 'Chess Studio' },
+    description: {
+      pt: 'Xadrez web contra Stockfish ou duas pessoas no mesmo dispositivo. Integra Angular a uma API Java 21/Spring Boot 3.5, com regras de jogo, histórico e retomada de partidas persistidas.',
+      en: 'Web chess against Stockfish or two people on the same device. Connects Angular to a Java 21/Spring Boot 3.5 API, with game rules, history and resuming saved matches.',
+    },
+    stack: ['Java 21', 'Spring Boot 3.5', 'Angular 22', 'TypeScript', 'PostgreSQL', 'Stockfish'],
+    category: 'fullstack', categories: ['frontend', 'backend', 'java'],
+    impact: { pt: 'JPA/Flyway, H2 local, OpenAPI, Docker Compose e testes JUnit, MockMvc e Playwright.', en: 'JPA/Flyway, local H2, OpenAPI, Docker Compose and JUnit, MockMvc and Playwright tests.' },
+    github: 'https://github.com/PedroFaria14/Chess-System-Java',
+    quality: ['tests', 'ci', 'docs'], featured: true,
+  },
+  {
+    title: { pt: 'Survive the Destruction', en: 'Survive the Destruction' },
+    description: {
+      pt: 'Jogo multiplayer em tempo real com React e Go. WebSocket sincroniza jogadores e arena com estado autoritativo no servidor, placar em PostgreSQL e controles responsivos para teclado e toque.',
+      en: 'Real-time multiplayer game built with React and Go. WebSocket synchronizes players and arena with server-authoritative state, PostgreSQL scores and responsive keyboard and touch controls.',
+    },
+    stack: ['React', 'Go', 'WebSocket', 'PostgreSQL', 'Canvas API'],
+    category: 'fullstack', categories: ['frontend', 'backend'],
+    impact: { pt: 'Comunicação cliente-servidor, salas independentes e reconexão com backoff.', en: 'Client-server communication, independent rooms and reconnection with backoff.' },
+    link: 'https://survive.phfaria.com/',
+    github: 'https://github.com/PedroFaria14/Jogo-survive-the-destruction',
+    quality: ['tests', 'docs'], featured: true,
+  },
+  {
     title: {
       pt: 'CodePath (App Educacional)',
       en: 'CodePath (Educational App)',
     },
     description: {
-      pt: 'Aplicativo gamificado para o ensino de lógica de programação. Arquitetura full-stack com Flutter, backend em Python/FastAPI e integração via Firebase.',
-      en: 'Gamified app for teaching programming logic. Full-stack architecture with Flutter, Python/FastAPI backend and Firebase integration.',
+      pt: 'App educacional gamificado em Flutter/Dart com trilhas, exercícios e desafios. A API Python/FastAPI gerencia sessões e valida pontuações, com persistência no Firestore.',
+      en: 'Gamified Flutter/Dart learning app with paths, exercises and challenges. A Python/FastAPI API manages sessions and validates scores, with Firestore persistence.',
     },
-    stack: ['Flutter', 'Python', 'FastAPI', 'Firebase'],
-    category: 'frontend',
+    stack: ['Flutter', 'Dart', 'Python', 'FastAPI', 'Firestore'],
+    category: 'fullstack', categories: ['backend', 'ai'],
+    context: { pt: 'Projeto acadêmico · preparação para release Android', en: 'Academic project · Android release preparation' },
     impact: {
-      pt: 'Facilita o engajamento no aprendizado de lógica com arquitetura desacoplada e resposta em tempo real.',
-      en: 'Boosts engagement in learning logic with a decoupled architecture and real-time responses.',
+      pt: 'Testes automatizados e CI Android; explicações com Gemini quando configurado. Publicação na loja pendente.',
+      en: 'Automated tests and Android CI; Gemini explanations when configured. Store publication pending.',
     },
     github: 'https://github.com/PedroFaria14/Projeto_CodePath',
+    video: 'https://www.youtube.com/watch?v=UzxwLV0mMh4',
+    quality: ['tests', 'ci', 'docs'],
     featured: true,
+  },
+  {
+    title: { pt: 'Jungle Gaming — Teste técnico', en: 'Jungle Gaming — Technical assessment' },
+    description: {
+      pt: 'Serviço distribuído para transações de apostas via HTTP e SQS/LocalStack. NestJS/TypeScript e PostgreSQL/TypeORM sustentam idempotência persistente e controle de concorrência por carteira.',
+      en: 'Distributed service for wagering transactions over HTTP and SQS/LocalStack. NestJS/TypeScript and PostgreSQL/TypeORM support persistent idempotency and per-wallet concurrency control.',
+    },
+    stack: ['TypeScript', 'NestJS', 'PostgreSQL', 'TypeORM', 'SQS / LocalStack', 'Docker'],
+    category: 'backend',
+    context: { pt: 'Projeto de teste técnico', en: 'Technical assessment project' },
+    impact: { pt: 'Inbox/outbox transacional, testes de integração e Playwright; testes de carga documentados em ambiente local.', en: 'Transactional inbox/outbox, integration and Playwright tests; documented local load tests.' },
+    github: 'https://github.com/PedroFaria14/Teste-tecnico-Jungle-Gaming',
+    quality: ['tests', 'ci', 'docs'], featured: true,
+  },
+];
+
+export const allProjects: Project[] = [
+  {
+    title: { pt: 'OrangeVision', en: 'OrangeVision' },
+    description: { pt: 'Sistema web com React/TypeScript e API Python/FastAPI para autenticação e dados, com integrações de banco. O site funciona separado dos componentes locais de inspeção.', en: 'Web system with React/TypeScript and a Python/FastAPI API for authentication and data, with database integrations. The website runs separately from local inspection components.' },
+    stack: ['React', 'TypeScript', 'Python', 'FastAPI', 'Prisma'],
+    category: 'fullstack', categories: ['frontend', 'backend', 'ai'],
+    impact: { pt: 'Inspeção com Raspberry Pi depende de migration, equipamento, câmera e calibração.', en: 'Raspberry Pi inspection requires a migration, device provisioning, camera and calibration.' },
+    github: 'https://github.com/PedroFaria14/OrangeVision', quality: ['docs'],
+  },
+  {
+    title: { pt: 'CaixaUNI', en: 'CaixaUNI' },
+    description: { pt: 'MVP de hackathon para tesourarias coletivas. Interface React/TypeScript com multisig Squads na Solana Devnet; login e dados da demonstração são locais, sem backend próprio.', en: 'Hackathon MVP for collective treasuries. React/TypeScript interface with Squads multisig on Solana Devnet; demo login and data are local, with no dedicated backend.' },
+    stack: ['React', 'TypeScript', 'Solana Devnet', 'Squads'],
+    category: 'web3', categories: ['frontend'],
+    github: 'https://github.com/PedroFaria14/CaixaUNI', quality: ['docs'],
+  },
+  {
+    title: { pt: 'AttestCredit', en: 'AttestCredit' },
+    description: { pt: 'Projeto solo de hackathon para pontuação de crédito e empréstimos cross-chain. Contratos Solidity, API e worker TypeScript; integração documentada em Sepolia e Creditcoin Testnet.', en: 'Solo hackathon project for cross-chain credit scoring and lending. Solidity contracts, TypeScript API and worker; documented integration on Sepolia and Creditcoin Testnet.' },
+    stack: ['Solidity', 'TypeScript', 'Express', 'Hardhat', 'Docker'],
+    category: 'web3', categories: ['backend'],
+    github: 'https://github.com/PedroFaria14/AttestCredit', quality: ['docs'],
   },
   {
     title: { pt: 'Web3 Anon DApp', en: 'Web3 Anon DApp' },
@@ -138,11 +242,11 @@ export const featuredProjects: Project[] = [
     stack: ['React', 'Solidity', 'Smart Contracts', 'MetaMask'],
     category: 'web3',
     impact: {
-      pt: 'Garante privacidade e imutabilidade em votações e interações através de smart contracts.',
-      en: 'Ensures privacy and immutability in voting and interactions through smart contracts.',
+      pt: 'Prova de conceito de mensagens e enquetes on-chain, com prevenção de voto duplicado.',
+      en: 'Proof of concept for on-chain messages and polls, with duplicate-vote prevention.',
     },
     github: 'https://github.com/PedroFaria14/web3-anon-dapp',
-    featured: true,
+    categories: ['frontend'],
   },
   {
     title: { pt: 'caminho-seguro', en: 'caminho-seguro' },
@@ -153,46 +257,11 @@ export const featuredProjects: Project[] = [
     stack: ['TypeScript', 'Solana'],
     category: 'web3',
     impact: {
-      pt: 'Combina rastreabilidade física e criptografia em blockchain para segurança comunitária.',
-      en: 'Combines physical traceability and on-chain cryptography for community safety.',
+      pt: 'Repositório fork; escopo experimental de proteção comunitária, sem afirmar implantação operacional.',
+      en: 'Forked repository; experimental community protection scope, without claiming operational deployment.',
     },
     link: 'https://caminho-seguro.rcg-tech.com.br/',
-    featured: true,
-  },
-  {
-    title: { pt: 'TechSnacks', en: 'TechSnacks' },
-    description: {
-      pt: 'Sistema de gestão comercial para controle de pedidos e estoque, com modelagem de classes e levantamento de requisitos funcionais.',
-      en: 'Commercial management system for orders and inventory control, with class modeling and functional requirements gathering.',
-    },
-    stack: ['Modelagem UML', 'Análise de Sistemas'],
-    category: 'backend',
-    impact: {
-      pt: 'Estrutura requisitos e modelagem de dados para otimizar processos de gestão comercial.',
-      en: 'Structures requirements and data modeling to optimize commercial management processes.',
-    },
-    github:
-      'https://github.com/PedroFaria14/Project-Clean-Pos-Engine-TechSnacks',
-    featured: true,
-  },
-  {
-    title: {
-      pt: 'Jogo-survive-the-destruction',
-      en: 'Jogo-survive-the-destruction',
-    },
-    description: {
-      pt: 'Jogo multiplayer em tempo real via WebSocket onde a arena de ilhas flutuantes é destruída aos poucos. Sobreviva pulando entre as ilhas, use power-ups e empurre os oponentes enquanto o chão desaparece.',
-      en: 'Real-time multiplayer WebSocket game where the floating islands arena is gradually destroyed. Survive by jumping between islands, using power-ups, and pushing opponents while the ground disappears.',
-    },
-    stack: ['React', 'Vite', 'MUI', 'Go', 'PostgreSQL', 'WebSocket'],
-    category: 'frontend',
-    impact: {
-      pt: 'Jogo multiplayer com física no servidor (tick 60 FPS), arena procedural, power-ups e leaderboard em PostgreSQL.',
-      en: 'Multiplayer game with server-side physics (60 FPS tick), procedural arena, power-ups, and PostgreSQL leaderboard.',
-    },
-    link: 'https://survive.phfaria.com/',
-    github: 'https://github.com/PedroFaria14/Jogo-survive-the-destruction',
-    featured: true,
+    github: 'https://github.com/PedroFaria14/caminho-seguro',
   },
   {
     title: { pt: 'site_JornadaDev', en: 'site_JornadaDev' },
@@ -207,11 +276,8 @@ export const featuredProjects: Project[] = [
       en: 'Supports retention and the academic journey of students entering the tech field.',
     },
     github: 'https://github.com/PedroFaria14/site_JornadaDev',
-    featured: true,
+    context: { pt: 'Projeto acadêmico · USF', en: 'Academic project · USF' },
   },
-];
-
-export const allProjects: Project[] = [
   // Web3
   {
     title: { pt: 'zero-custody-solana-agent', en: 'zero-custody-solana-agent' },
@@ -222,6 +288,7 @@ export const allProjects: Project[] = [
     stack: ['JavaScript', 'Solana'],
     category: 'web3',
     github: 'https://github.com/PedroFaria14/zero-custody-solana-agent',
+    unavailable: true,
   },
   // Frontend
   {
@@ -243,6 +310,7 @@ export const allProjects: Project[] = [
     stack: ['React', 'TypeScript'],
     category: 'frontend',
     github: 'https://github.com/PedroFaria14/Lista_de_Tarefas',
+    unavailable: true,
   },
   {
     title: { pt: 'Secret-Word', en: 'Secret-Word' },
@@ -260,7 +328,7 @@ export const allProjects: Project[] = [
       pt: 'Site para pesquisar e descobrir filmes.',
       en: 'Website to search and discover movies.',
     },
-    stack: ['JavaScript'],
+    stack: ['React', 'JavaScript', 'TMDb API'],
     category: 'frontend',
     github: 'https://github.com/PedroFaria14/Details_Movies',
   },
@@ -291,23 +359,15 @@ export const allProjects: Project[] = [
     stack: ['C++'],
     category: 'other',
     github: 'https://github.com/PedroFaria14/ProjetoAquario',
+    unavailable: true,
   },
   {
-    title: { pt: '-AtaFlow', en: '-AtaFlow' },
-    description: { pt: 'Projeto autoral.', en: 'Personal project.' },
-    stack: ['Python'],
-    category: 'other',
+    title: { pt: 'AtaFlow', en: 'AtaFlow' },
+    description: { pt: 'Aplicação para transformar áudio de reuniões em atas estruturadas com IA. Frontend React integrado a uma API FastAPI, PostgreSQL e migrations com Alembic/SQLAlchemy.', en: 'Application for turning meeting audio into structured minutes with AI. React frontend connected to a FastAPI API, PostgreSQL and Alembic/SQLAlchemy migrations.' },
+    stack: ['React', 'TypeScript', 'Python', 'FastAPI', 'PostgreSQL', 'Docker'],
+    category: 'ai', categories: ['frontend', 'backend', 'fullstack'],
     link: 'https://ata-flow.phfaria.com/',
-  },
-  {
-    title: {
-      pt: 'Jogo-survive-the-destruction',
-      en: 'Jogo-survive-the-destruction',
-    },
-    description: { pt: 'Jogo autoral.', en: 'Personal game.' },
-    stack: ['Go'],
-    category: 'other',
-    github: 'https://github.com/PedroFaria14/Jogo-survive-the-destruction',
+    github: 'https://github.com/PedroFaria14/-AtaFlow',
   },
   {
     title: { pt: 'Projeto-Agenda', en: 'Projeto-Agenda' },
@@ -318,6 +378,7 @@ export const allProjects: Project[] = [
     stack: ['Python'],
     category: 'other',
     github: 'https://github.com/PedroFaria14/Projeto-Agenda',
+    unavailable: true,
   },
   {
     title: { pt: 'Calculadora-Python', en: 'Calculadora-Python' },
@@ -328,6 +389,7 @@ export const allProjects: Project[] = [
     stack: ['Python'],
     category: 'other',
     github: 'https://github.com/PedroFaria14/Calculadora-Python',
+    unavailable: true,
   },
   {
     title: { pt: '-WorkShop-JavaFX-JDBC', en: '-WorkShop-JavaFX-JDBC' },
@@ -336,38 +398,45 @@ export const allProjects: Project[] = [
       en: 'User management system with JavaFX and JDBC.',
     },
     stack: ['Java'],
-    category: 'other',
+    category: 'java',
     github: 'https://github.com/PedroFaria14/-WorkShop-JavaFX-JDBC',
   },
   {
-    title: { pt: 'AsyncRunner', en: 'AsyncRunner' },
-    description: { pt: 'Projeto autoral.', en: 'Personal project.' },
-    stack: ['TypeScript'],
-    category: 'other',
-    github: 'https://github.com/PedroFaria14/AsyncRunner',
+    title: { pt: 'Workshop Spring Boot — JPA', en: 'Spring Boot Workshop — JPA' },
+    description: { pt: 'Projeto de curso de backend Java com Spring Boot 3, Maven e persistência JPA.', en: 'Java backend course project with Spring Boot 3, Maven and JPA persistence.' },
+    stack: ['Java', 'Spring Boot 3', 'JPA', 'Maven'],
+    category: 'java', categories: ['backend'],
+    github: 'https://github.com/PedroFaria14/WorkShop-SpringBoot3-JPA',
+  },
+  {
+    title: { pt: 'Workshop Spring Boot — MongoDB', en: 'Spring Boot Workshop — MongoDB' },
+    description: { pt: 'Projeto de estudo para gerenciamento de publicações com Java, Spring Boot 3 e MongoDB.', en: 'Study project for managing posts with Java, Spring Boot 3 and MongoDB.' },
+    stack: ['Java', 'Spring Boot 3', 'MongoDB'],
+    category: 'java', categories: ['backend'],
+    github: 'https://github.com/PedroFaria14/WorkShop-SpringBoot3-MongoDB',
   },
 ];
 
 export const experience = [
   {
     role: {
-      pt: 'Estagiário de Desenvolvimento Blockchain',
-      en: 'Blockchain Development Intern',
+      pt: 'Estagiário de Desenvolvimento de Software (Blockchain)',
+      en: 'Software Development Intern (Blockchain)',
     },
-    org: { pt: 'Área de P&D', en: 'R&D Department' },
-    period: '03/2025 — Atual',
+    org: { pt: 'CPQD', en: 'CPQD' },
+    period: { pt: '03/2025 — Atual', en: '03/2025 — Present' },
     description: {
-      pt: 'Atuação em P&D, contribuindo para o desenvolvimento de soluções com tecnologia blockchain.',
-      en: 'Working in R&D, contributing to the development of blockchain-based solutions.',
+      pt: 'Desenvolvimento de software em projetos envolvendo blockchain e identidade digital.',
+      en: 'Software development on projects involving blockchain and digital identity.',
     },
     responsibilities: [
       {
-        pt: 'Tarefas de front-end e back-end',
-        en: 'Front-end and back-end tasks',
+        pt: 'Desenvolvimento com Go e Python e integração de APIs REST.',
+        en: 'Development with Go and Python and REST API integration.',
       },
       {
-        pt: 'Participação no ciclo completo de desenvolvimento',
-        en: 'Participation in the full development cycle',
+        pt: 'Uso de Docker e Git, com integração a pipelines Jenkins/CI/CD.',
+        en: 'Use of Docker and Git, with integration into Jenkins/CI/CD pipelines.',
       },
     ],
   },
@@ -377,7 +446,7 @@ export const experience = [
       en: 'IT Intern — Infrastructure',
     },
     org: { pt: 'Suporte Técnico', en: 'Technical Support' },
-    period: '06/2024 — 02/2025',
+    period: { pt: '06/2024 — 02/2025', en: '06/2024 — 02/2025' },
     description: {
       pt: 'Suporte técnico e manutenção de infraestrutura para garantir disponibilidade das ferramentas de trabalho.',
       en: 'Technical support and infrastructure maintenance to ensure availability of work tools.',
@@ -411,7 +480,7 @@ export const education = [
   {
     degree: { pt: 'Engenharia da Computação', en: 'Computer Engineering' },
     school: 'Universidade São Francisco (USF)',
-    period: { pt: '6º semestre', en: '6th semester' },
+    period: { pt: 'Em andamento · conclusão prevista em 12/2028', en: 'In progress · expected graduation 12/2028' },
   },
   {
     degree: { pt: 'Técnico em Informática', en: 'Computer Technician' },
@@ -428,7 +497,7 @@ export const courseCategories: { key: CourseCategoryKey; label: BiString }[] = [
     key: 'frontend',
     label: { pt: 'Frontend & JavaScript', en: 'Frontend & JavaScript' },
   },
-  { key: 'backend', label: { pt: 'Backend & Go', en: 'Backend & Go' } },
+  { key: 'backend', label: { pt: 'Backend & APIs', en: 'Backend & APIs' } },
   { key: 'web3', label: { pt: 'Blockchain & Web3', en: 'Blockchain & Web3' } },
   { key: 'infra', label: { pt: 'Infra & DevOps', en: 'Infra & DevOps' } },
   { key: 'data', label: { pt: 'Dados & BI', en: 'Data & BI' } },
@@ -441,9 +510,32 @@ export const courseCategories: { key: CourseCategoryKey; label: BiString }[] = [
 export type Course = {
   name: BiString;
   category: CourseCategoryKey;
+  status?: 'completed' | 'in-progress';
+  institution?: string;
+  hours?: number;
+  completedAt?: string;
+  description?: BiString;
 };
 
 export const courses: Course[] = [
+  {
+    name: { pt: 'Desenvolvimento de APIs com .NET', en: 'Desenvolvimento de APIs com .NET' },
+    institution: 'DIO — Digital Innovation One', hours: 15,
+    completedAt: '2026-11-16', status: 'completed', category: 'backend',
+    description: { pt: 'Conhecimento complementar em desenvolvimento de APIs com .NET.', en: 'Complementary knowledge in API development with .NET.' },
+  },
+  {
+    name: { pt: 'Itaú — Java com Inteligência Artificial', en: 'Itaú — Java com Inteligência Artificial' },
+    institution: 'DIO — Digital Innovation One', hours: 45,
+    status: 'in-progress', category: 'backend',
+    description: { pt: 'Conteúdos previstos: Java, orientação a objetos, Spring Boot e integração com IA Generativa.', en: 'Planned topics: Java, object-oriented programming, Spring Boot and Generative AI integration.' },
+  },
+  {
+    name: { pt: 'Kubernetes na Prática: Domine a Orquestração de Contêineres', en: 'Kubernetes na Prática: Domine a Orquestração de Contêineres' },
+    institution: 'CPQD · Pontifícia Universidade Católica do Paraná (PUCPR)',
+    status: 'in-progress', category: 'infra',
+    description: { pt: 'Curso de extensão com formação prática em orquestração de contêineres: configuração de clusters Kubernetes, gerenciamento de Pods e namespaces e uso de kubeadm, containerd e Flannel em ambiente de laboratório.', en: 'University extension course with hands-on container orchestration: configuring Kubernetes clusters, managing Pods and namespaces, and using kubeadm, containerd and Flannel in a lab environment.' },
+  },
   {
     name: {
       pt: 'TypeScript do básico ao avançado c/ React e Express (Udemy)',

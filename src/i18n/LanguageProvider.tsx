@@ -29,6 +29,16 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     window.localStorage.setItem(STORAGE_KEY, locale)
+    document.documentElement.lang = locale === 'pt' ? 'pt-BR' : 'en'
+    const metadata = translations[locale].metadata
+    document.title = metadata.title
+    for (const selector of ['meta[name="description"]', 'meta[property="og:description"]', 'meta[name="twitter:description"]']) {
+      document.querySelector(selector)?.setAttribute('content', metadata.description)
+    }
+    for (const selector of ['meta[property="og:title"]', 'meta[name="twitter:title"]']) {
+      document.querySelector(selector)?.setAttribute('content', metadata.title)
+    }
+    document.querySelector('meta[property="og:locale"]')?.setAttribute('content', locale === 'pt' ? 'pt_BR' : 'en_US')
   }, [locale])
 
   const value = useMemo(

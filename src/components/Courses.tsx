@@ -1,24 +1,49 @@
-import { courseCategories, courses } from '../data/portfolio'
+import { courseCategories, courses, type Course } from '../data/portfolio'
 import { useLanguage } from '../i18n/language'
 import { pick } from '../i18n/i18n'
 import { Reveal } from './Reveal'
 import { SectionHeader } from './SectionHeader'
+
+function CourseCard({ course }: { course: Course }) {
+  const { locale, t } = useLanguage()
+  return (
+    <article className="rounded-2xl border border-border bg-surface p-5">
+      <p className="mb-2 font-mono text-xs text-accent">{t(`courses.${course.status === 'completed' ? 'completed' : 'inProgress'}`)}</p>
+      <h4 className="font-display font-medium text-ink" lang="pt-BR">{pick(locale, course.name)}</h4>
+      <p className="mt-2 text-sm text-muted">{[course.institution, course.hours && `${course.hours} ${t('courses.hours')}`].filter(Boolean).join(' · ')}</p>
+      {course.completedAt && (
+        <p className="mt-2 text-sm text-muted">{t('courses.completion')}: <time dateTime={course.completedAt}>{new Intl.DateTimeFormat(locale === 'pt' ? 'pt-BR' : 'en-GB', { timeZone: 'UTC' }).format(new Date(`${course.completedAt}T12:00:00Z`))}</time></p>
+      )}
+      {course.description && <p className="mt-3 text-sm leading-relaxed text-muted">{pick(locale, course.description)}</p>}
+    </article>
+  )
+}
 
 export function Courses() {
   const { locale, t } = useLanguage()
   return (
     <section id="cursos" className="mx-auto max-w-6xl px-6 py-16 sm:px-10 sm:py-24 lg:px-16">
       <SectionHeader label={t('courses.label')} title={t('courses.title')} />
-
+      <div className="mb-12 space-y-8">
+        {(['completed', 'in-progress'] as const).map((status) => (
+          <div key={status}>
+            <h3 className="mb-4 font-display text-lg text-ink">{t(`courses.${status === 'completed' ? 'completed' : 'inProgress'}`)}</h3>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {courses.filter((course) => course.status === status).map((course) => <CourseCard key={course.name.pt} course={course} />)}
+            </div>
+          </div>
+        ))}
+      </div>
+      <h3 className="mb-6 font-display text-lg text-ink">{t('courses.additional')}</h3>
       <Reveal>
         <div className="space-y-10">
           {courseCategories.map((category) => {
-            const items = courses.filter((c) => c.category === category.key)
+            const items = courses.filter((c) => c.category === category.key && !c.status)
             return (
               <div key={category.key} className="text-center lg:text-left">
-                <h3 className="mb-4 font-mono text-xs uppercase tracking-[0.12em] text-accent sm:tracking-[0.15em]">
+                <h4 className="mb-4 font-mono text-xs uppercase tracking-[0.12em] text-accent sm:tracking-[0.15em]">
                   {pick(locale, category.label)}
-                </h3>
+                </h4>
                 <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
                   {items.map((c) => (
                     <span

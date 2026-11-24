@@ -13,6 +13,7 @@ import { ActiveSectionIndicator } from './components/SectionActiveIndicator'
 import { Stack } from './components/Stack'
 import { profile } from './data/portfolio'
 import { LanguageProvider } from './i18n/LanguageProvider'
+import { useLanguage } from './i18n/language'
 
 function ScrollProgress() {
   const { scrollYProgress } = useScroll()
@@ -27,6 +28,7 @@ function ScrollProgress() {
 }
 
 function Site() {
+  const { t } = useLanguage()
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -38,11 +40,12 @@ function Site() {
 
   return (
     <div className="relative min-h-screen overflow-x-clip bg-base text-ink">
+      <a href="#conteudo" className="sr-only fixed left-4 top-4 z-50 rounded-md bg-accent px-4 py-3 text-base focus:not-sr-only">{t('footer.skip')}</a>
       <BackgroundCanvas />
       <ActiveSectionIndicator />
       <ScrollProgress />
       <Navbar scrolled={scrolled} />
-      <main className="relative z-10">
+      <main id="conteudo" tabIndex={-1} className="relative z-10">
         <Hero />
         <About />
         <Stack />
@@ -58,7 +61,7 @@ function Site() {
             © {new Date().getFullYear()} {profile.name}
           </p>
           <p className="font-mono text-xs">
-            Full Stack <span className="text-accent">&</span> Blockchain
+            React <span className="text-accent">&</span> TypeScript · Full Stack
           </p>
         </div>
       </footer>

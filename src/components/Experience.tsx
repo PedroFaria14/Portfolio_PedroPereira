@@ -11,7 +11,7 @@ function ExperienceItem({ exp }: { exp: (typeof experience)[number] }) {
       <span className="absolute -left-[41px] top-1.5 h-3 w-3 rounded-full border-2 border-accent bg-base" />
       <div className="flex flex-col items-center gap-2 sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-between">
         <h3 className="font-display text-lg font-medium text-ink">{pick(locale, exp.role)}</h3>
-        <span className="font-mono text-xs uppercase tracking-wide text-accent">{exp.period}</span>
+        <span className="font-mono text-xs uppercase tracking-wide text-accent">{pick(locale, exp.period)}</span>
       </div>
       <p className="mt-1 text-sm font-medium text-muted">{pick(locale, exp.org)}</p>
       <p className="mt-2 text-sm leading-relaxed text-subtle">{pick(locale, exp.description)}</p>

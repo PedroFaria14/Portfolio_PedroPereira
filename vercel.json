@@ -21,15 +21,5 @@
         }
       ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/projects/ata-flow/:match*",
-      "destination": "https://ata-flow.vercel.app/:match*"
-    },
-    {
-      "source": "/projects/survive-the-destruction/:match*",
-      "destination": "https://jogo-survive-the-destruction.vercel.app/:match*"
-    }
   ]
 }

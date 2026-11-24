@@ -1,6 +1,6 @@
 # Portfólio — Pedro Pereira
 
-Portfólio one-page em React + Vite + Tailwind CSS v4 + Framer Motion, com direção visual **Premium Elegante** (dark), foco em **Sistemas Escaláveis & Web3** e suporte completo a **PT/EN**.
+Portfólio one-page em React + Vite + Tailwind CSS v4 + Framer Motion, com direção visual **Premium Elegante** (dark), foco em **Frontend e Full Stack Júnior — React e TypeScript** e suporte a **PT/EN**. Site: https://www.phfaria.com/.
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white)
@@ -16,11 +16,11 @@ Site pessoal de apresentação profissional, contendo:
 - **Hero** com digitação do nome, anel giratório e glow na foto
 - **Sobre** com soft skills animadas
 - **Stack & Habilidades** organizada por categorias (Linguagens, Frameworks, Web3, Infra, Fundamentos)
-- **Projetos** em destaque + lista completa (26 projetos)
+- **Projetos** com seis destaques iniciais e filtros Frontend, Full Stack, Backend, Java, IA & Automação e Web3
 - **Experiência profissional** e **Escolaridade**
-- **Cursos & Certificações** (34 cursos em 6 categorias)
+- **Cursos & Certificações** com conclusão confirmada, cursos em andamento e formação complementar em seis categorias
 - **Contato** com links para LinkedIn, GitHub e e-mail
-- **i18n PT/EN**: detecção automática por `navigator.language` + seletor manual
+- **i18n PT/EN**: inglês por padrão + seletor manual e persistência da preferência em `localStorage`; idioma do documento e metadados acompanham a seleção
 - **Animações de fundo**: partículas reativas ao mouse, glow com mouse-follow, indicador de seção ativa
 
 ---
@@ -92,7 +92,7 @@ src/
 │   └── portfolio.ts   # TODOS os dados editáveis do site
 ├── i18n/
 │   ├── language.ts    # Contexto + hook useLanguage
-│   ├── LanguageProvider.tsx   # Provider (detecção + persistência)
+│   ├── LanguageProvider.tsx   # Provider (inglês padrão + persistência + metadados)
 │   ├── translations.ts        # Dicionário PT/EN da UI
 │   └── i18n.ts        # Tipos e helper pick()
 ├── App.tsx            # Composição das seções
@@ -120,12 +120,28 @@ role: {
 - `profile` — nome, cargo, foco, sobre, e-mail e links sociais
 - `softSkills` — lista de soft skills
 - `skills` — agrupadas em `languages`, `frameworks`, `web3`, `infra`, `foundations`
-- `featuredProjects` / `allProjects` — projetos (campos `title`, `description`, `stack`, `impact`, `link`, `featured`, `category`)
+- `featuredProjects` / `allProjects` — destaques e catálogo secundário, respectivamente; cada projeto deve existir em apenas uma das listas
+- Campos de projeto: `title`, `description`, `stack`, `impact`, `github`, `link`, `video`, `category`, `categories`, `context` e `quality`
+- `quality` — indicadores `tests`, `ci` e `docs`, somente quando há evidência no repositório
+- `unavailable` — preserva registros antigos fora do catálogo ativo, sem exibir links quebrados
 - `experience` — itens de experiência
 - `education` — formação acadêmica
-- `courseCategories` + `courses` — categorias e cursos
+- `courseCategories` + `courses` — categorias e cursos; `status`, `institution`, `hours`, `completedAt` (ISO) e `description` são opcionais
 
-> Dica: para adicionar um projeto, basta incluir um objeto em `allProjects`. Marque `featured: true` para aparecer na seção de destaque.
+> Para destacar um projeto, mova seu registro para `featuredProjects`; não duplique em `allProjects`. Use `categories` para permitir múltiplos filtros. `featured: true` é metadado; a lista determina a exibição inicial.
+
+Cursos com `status: 'completed'` aparecem como concluídos e cursos com `status: 'in-progress'` aparecem em andamento. Os registros anteriores sem status explícito permanecem em **Formação complementar**, sem inventar datas de conclusão. Nomes oficiais das três novas formações são mantidos em português também na interface inglesa, com detalhes traduzidos.
+
+## Conteúdo e verificação
+
+- CPQD: Estagiário de Desenvolvimento de Software (Blockchain), 03/2025 — Atual, conforme confirmação do autor.
+- Destaques: TechSnacks, AsyncRunner, Chess Studio, Survive the Destruction, CodePath e Jungle Gaming (teste técnico).
+- .NET: **Desenvolvimento de APIs com .NET**, DIO, 15 horas, concluído em 16/11/2026; formação complementar, não experiência profissional.
+- Em andamento: bootcamp Itaú — Java com Inteligência Artificial (DIO, 45 horas) e extensão Kubernetes na Prática (CPQD/PUCPR), com atividades de laboratório.
+- Repositórios indisponíveis são mantidos em um arquivo secundário acessível pelo filtro **Todos**.
+- Fontes, limitações e links da auditoria: [AUDIT.md](AUDIT.md).
+
+Os metadados estáticos usam inglês, acompanhando o idioma padrão. A troca de idioma atualiza o documento no navegador. Não há URLs separadas por idioma ou prerenderização; crawlers que não executam JavaScript recebem os metadados ingleses. Canonical, Open Graph, robots e sitemap usam o domínio final `www.phfaria.com`, destino do redirecionamento do domínio sem `www`.
 
 ---
 

@@ -1,5 +1,9 @@
 export const translations = {
   pt: {
+    metadata: {
+      title: 'Pedro Pereira — Desenvolvedor Frontend & Full Stack Júnior',
+      description: 'Portfólio de Pedro Pereira: React, TypeScript e integração de APIs. Projetos Full Stack, experiência no CPQD com Go e Python e formação em software.',
+    },
     nav: {
       sobre: 'Sobre',
       stack: 'Stack',
@@ -16,6 +20,7 @@ export const translations = {
       switchTo: 'Trocar idioma para inglês',
     },
     hero: {
+      photo: 'Foto de',
       hello: 'Olá, meu nome é',
       linkedin: 'LinkedIn',
       github: 'GitHub',
@@ -44,6 +49,19 @@ export const translations = {
       allTitle: 'Todos os projetos',
       viewAll: 'Ver todos os projetos',
       open: 'Abrir',
+      intro: 'Projetos pessoais, acadêmicos e de teste técnico. Explore interfaces, APIs e integrações; a experiência profissional está na seção seguinte.',
+      filter: 'Filtrar projetos por área',
+      results: 'projetos exibidos',
+      repository: 'Código',
+      demo: 'Demonstração',
+      video: 'Vídeo',
+      quality: 'Evidências no repositório',
+      tests: 'Testes',
+      ci: 'CI',
+      docs: 'Documentação',
+      archive: 'Projetos anteriores com repositório indisponível',
+      unavailable: 'Os registros foram preservados, mas os repositórios não estão acessíveis publicamente. Links indisponíveis não são exibidos.',
+      categories: { featured: 'Destaques', all: 'Todos', frontend: 'Frontend', fullstack: 'Full Stack', backend: 'Backend', java: 'Java', ai: 'IA & Automação', web3: 'Web3', other: 'Outros' },
     },
     experience: {
       label: 'experiência',
@@ -56,18 +74,28 @@ export const translations = {
     courses: {
       label: 'aprendizado',
       title: 'Cursos & Certificações',
+      completed: 'Concluído',
+      inProgress: 'Em andamento',
+      additional: 'Formação complementar',
+      hours: 'horas',
+      completion: 'Conclusão',
     },
     contact: {
       label: 'contato',
       title: 'Vamos conversar?',
       description:
-        'Estou disponível para oportunidades como Desenvolvedor Júnior e novos desafios. Me chama por qualquer um dos canais abaixo.',
+        'Busco oportunidades Frontend e Full Stack Júnior, com abertura para Backend e Engenharia de Software. Vamos conversar sobre como posso contribuir para a sua equipe?',
     },
     footer: {
+      skip: 'Pular para o conteúdo',
       rights: 'Todos os direitos reservados.',
     },
   },
   en: {
+    metadata: {
+      title: 'Pedro Pereira — Junior Frontend & Full Stack Developer',
+      description: 'Pedro Pereira’s portfolio: React, TypeScript and API integration. Full Stack projects, professional Go and Python experience at CPQD, and software education.',
+    },
     nav: {
       sobre: 'About',
       stack: 'Stack',
@@ -84,6 +112,7 @@ export const translations = {
       switchTo: 'Switch language to Portuguese',
     },
     hero: {
+      photo: 'Photo of',
       hello: "Hello, my name is",
       linkedin: 'LinkedIn',
       github: 'GitHub',
@@ -112,6 +141,19 @@ export const translations = {
       allTitle: 'All projects',
       viewAll: 'View all projects',
       open: 'Open',
+      intro: 'Personal, academic and technical assessment projects. Explore interfaces, APIs and integrations; professional experience is in the next section.',
+      filter: 'Filter projects by area',
+      results: 'projects shown',
+      repository: 'Code',
+      demo: 'Live demo',
+      video: 'Video',
+      quality: 'Repository evidence',
+      tests: 'Tests',
+      ci: 'CI',
+      docs: 'Documentation',
+      archive: 'Earlier projects with unavailable repositories',
+      unavailable: 'Records have been preserved, but the repositories are not publicly accessible. Unavailable links are not displayed.',
+      categories: { featured: 'Featured', all: 'All', frontend: 'Frontend', fullstack: 'Full Stack', backend: 'Backend', java: 'Java', ai: 'AI & Automation', web3: 'Web3', other: 'Other' },
     },
     experience: {
       label: 'experience',
@@ -124,14 +166,20 @@ export const translations = {
     courses: {
       label: 'learning',
       title: 'Courses & Certifications',
+      completed: 'Completed',
+      inProgress: 'In progress',
+      additional: 'Additional training',
+      hours: 'hours',
+      completion: 'Completion',
     },
     contact: {
       label: 'contact',
       title: "Let's talk?",
       description:
-        "I'm available for Junior Developer roles and new challenges. Reach out through any of the channels below.",
+        'I am seeking Junior Frontend and Full Stack roles, and am also open to Backend and Software Engineering opportunities. Let’s discuss how I can contribute to your team.',
     },
     footer: {
+      skip: 'Skip to content',
       rights: 'All rights reserved.',
     },
   },

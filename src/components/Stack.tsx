@@ -8,9 +8,9 @@ import { Chip } from './Chip'
 const groups: { key: keyof typeof skills; labelKey: string }[] = [
   { key: 'languages', labelKey: 'stack.groups.languages' },
   { key: 'frameworks', labelKey: 'stack.groups.frameworks' },
-  { key: 'web3', labelKey: 'stack.groups.web3' },
   { key: 'infra', labelKey: 'stack.groups.infra' },
   { key: 'foundations', labelKey: 'stack.groups.foundations' },
+  { key: 'web3', labelKey: 'stack.groups.web3' },
 ]
 
 export function Stack() {
